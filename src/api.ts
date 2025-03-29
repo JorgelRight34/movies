@@ -1,18 +1,20 @@
 import axios, { AxiosError, InternalAxiosRequestConfig } from "axios";
 import { completeLoadingBar } from "./components/LoadingBar";
 import { toast } from "react-toastify";
+import { ACCESS_TOKEN, API_KEY } from "./lib/constants";
 
 const api = axios.create({
   baseURL: "https://api.themoviedb.org/3/",
 });
 
-const API_KEY = "";
-
 api.interceptors.request.use(
-  (
+  async (
     config: InternalAxiosRequestConfig
-  ): InternalAxiosRequestConfig | Promise<InternalAxiosRequestConfig> => {
-    config.headers.Authorization = `Bearer ${API_KEY}`;
+  ):
+    | Promise<InternalAxiosRequestConfig>
+    | Promise<InternalAxiosRequestConfig> => {
+    config.headers.Authorization = `Bearer ${ACCESS_TOKEN}`;
+
     return config;
   },
   (error: AxiosError) => {
@@ -26,6 +28,7 @@ api.interceptors.response.use(
     return response;
   },
   (error) => {
+    console.log("checking", error);
     if (error instanceof AxiosError) {
       switch (error.code) {
         case "ERR_NETWORK":
@@ -41,7 +44,10 @@ api.interceptors.response.use(
             case 404:
               toast.error("Not found.");
               break;
-            case 400:
+            case 401:
+              toast.error("Unathorized");
+              break;
+            default:
               toast.error("Bad request");
               break;
           }

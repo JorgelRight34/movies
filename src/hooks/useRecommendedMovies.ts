@@ -3,12 +3,12 @@ import api from "../api";
 import { API_KEY } from "../lib/constants";
 import { Movie } from "../models/movie";
 
-const useRecommendedMovies = (id: string) => {
+const useRecommendedMovies = (id: string): Movie[] => {
   const [movies, setMovies] = useState<Movie[]>([]);
 
   const fetchMovies = async () => {
     const response = await api.get(
-      `movies/${id}/recommended?api_key=${API_KEY}`
+      `movie/${id}/recommendations?api_key=${API_KEY}`
     );
     setMovies(response.data.results);
   };

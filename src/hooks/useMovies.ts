@@ -1,12 +1,15 @@
 import api from "../api";
+import { API_KEY } from "../lib/constants";
 import { Movie } from "../models/movie";
 import { useEffect, useState } from "react";
 
-const useMovies = () => {
+const useMovies = (
+  endpoint: "now_playing" | "popular" | "top_rated" | "upcoming" = "now_playing"
+) => {
   const [movies, setMovies] = useState<Movie[]>([]);
 
   const fetchMovies = async () => {
-    const response = await api.get("movie/now_playing");
+    const response = await api.get(`movie/${endpoint}?api_key=${API_KEY}`);
     setMovies(response.data.results);
   };
 
