@@ -1,5 +1,5 @@
 :root {
-  --accent-color: #1c2541;
+  --accent-color: #800020;
   --background-dark: #1e1e1e;
   --background-medium: #2a2a2a;
 }
@@ -12,49 +12,29 @@
   background-color: var(--background-dark);
 }
 
+.btn-accent {
+  background: var(--accent-color) !important;
+  color: #fff;
+}
+
 .bg-dark {
   background-color: var(--background-dark) !important;
+}
+
+.bg-black {
+  background-color: #000;
 }
 
 .bg-medium {
   background-color: var(--background-medium);
 }
 
-.movie-details-backdrop img {
-  height: 25dvh;
-  width: 100%;
-  object-fit: cover;
+.text-accent {
+  color: var(--accent-color);
 }
 
-.movie-backdrop-img {
-  object-fit: contain;
-}
-
-.movie-backdrop-img::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 500%; /* You can adjust this to cover more or less */
-  height: 100%;
-
-  z-index: 1;
-}
-
-.movie-details-backdrop {
-  height: 25dvh;
-}
-
-.movie-card {
-  background-color: var(--background-dark);
-  color: #fff;
-  overflow: hidden;
-}
-
-.movie-card:hover {
-  transform: scale(1.1);
-  z-index: 100;
-  box-shadow: 0 4px 15px rgba(255, 255, 255, 0.8), 0 2px 10px rgba(0, 0, 0, 0.2) !important;
+.movie-details-poster {
+  height: 40rem;
 }
 
 .movies-listings {
@@ -72,11 +52,6 @@ span {
   opacity: 0.7;
 }
 
-.movie-details-poster {
-  height: 70dvh;
-  object-fit: contain;
-}
-
 .cast-list {
   max-height: 10rem;
   overflow-y: auto;
@@ -92,4 +67,17 @@ span {
   position: sticky;
   top: 0;
   z-index: 1000;
+}
+
+::-webkit-scrollbar {
+  width: 0.33em;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--background-medium);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--accent-color);
+  border-radius: 100vw;
 }

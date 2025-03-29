@@ -5,11 +5,11 @@ import { BrowserRouter as Router, Routes, Route } from "react-router";
 import { lazy, Suspense } from "react";
 import LoadingBar from "./components/LoadingBar";
 import { Bounce, ToastContainer } from "react-toastify";
-import Favorites from "./pages/Favorites";
 
-const Index = lazy(() => import("./pages/Index"));
+const Index = lazy(() => import("./pages/Index/Index"));
 const Approved = lazy(() => import("./pages/Approved"));
-const MovieDetails = lazy(() => import("./pages/MovieDetails"));
+const MovieDetails = lazy(() => import("./pages/MovieDetails/MovieDetails"));
+const Favorites = lazy(() => import("./pages/Favorites/Favorites"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 function App() {

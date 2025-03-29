@@ -1,12 +1,13 @@
 import { Genre } from "./genre";
 import { Language } from "./language";
+import { ProductionCompany } from "./productionCompany";
 
 export interface Movie {
   adult: boolean;
   backdrop_path: string;
   genres: Genre[];
   id: number;
-  original_language: Language;
+  original_language: string;
   original_title: string;
   overview: string;
   popularity: number;
@@ -18,4 +19,8 @@ export interface Movie {
   video: boolean;
   vote_average: number;
   vote_count: number;
+  production_companies: ProductionCompany[];
+  spoken_languages: Language[];
+  status: string;
+  imdb_id: number;
 }

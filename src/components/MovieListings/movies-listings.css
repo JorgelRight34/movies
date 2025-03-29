@@ -1,0 +1,7 @@
+.slides-container {
+    overflow: visible;
+}
+
+.slick-slide > div {
+    margin: 0 1rem;
+}

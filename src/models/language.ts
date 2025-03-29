@@ -1,35 +1,5 @@
-export type Language =
-  | "en"
-  | "es"
-  | "fr"
-  | "de"
-  | "it"
-  | "pt"
-  | "ru"
-  | "ja"
-  | "ko"
-  | "zh"
-  | "ar"
-  | "hi"
-  | "pl"
-  | "tr"
-  | "cs"
-  | "ro"
-  | "nl"
-  | "sv"
-  | "no"
-  | "da"
-  | "fi"
-  | "el"
-  | "th"
-  | "ms"
-  | "ta"
-  | "hi"
-  | "id"
-  | "he"
-  | "hu"
-  | "sk"
-  | "uk"
-  | "vi"
-  | "pl"
-  | "sr";
+export interface Language {
+  english_name: string;
+  name: string;
+  iso_639_1: string;
+}

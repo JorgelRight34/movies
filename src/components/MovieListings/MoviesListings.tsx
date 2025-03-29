@@ -1,23 +1,24 @@
 import { useMemo } from "react";
 
-import MovieCard from "./MovieCard";
-import { Movie } from "../models/movie";
+import MovieCard from "../MovieCard/MovieCard";
+import { Movie } from "../../models/movie";
 import { NavLink } from "react-router";
 import Slider from "react-slick";
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import "./movies-listings.css";
 
 interface MoviesListingsProps {
   movies: Movie[];
-  width?: number;
-  gap?: number;
+  slidesToShow?: number;
+  slidesToScroll?: number;
 }
 
 const MoviesListings = ({
   movies,
-  width = 3,
-  gap = 5,
+  slidesToShow = 5,
+  slidesToScroll = 3,
 }: MoviesListingsProps) => {
   const orderedMovies = useMemo(
     () =>
@@ -28,27 +29,24 @@ const MoviesListings = ({
   );
 
   const settings = {
-    dots: false,
+    dots: true,
     infinite: true,
     speed: 500,
-    slidesToShow: 6,
-    slidesToScroll: 3,
+    slidesToShow: slidesToShow,
+    slidesToScroll: slidesToScroll,
   };
 
+  if (movies.length === 0) return <></>;
+
   return (
-    <div className={`movies-listings gap-${gap}`}>
-      {orderedMovies.length}
-      <>
+    <div className={`slider-container`}>
+      <Slider {...settings}>
         {orderedMovies.map((movie) => (
-          <NavLink
-            key={movie.id}
-            className={`text-decoration-none col-lg-${width}`}
-            to={`/movies/${movie.id}`}
-          >
+          <div className={`col-lg-2 py-5`}>
             <MovieCard key={movie.id} movie={movie} />
-          </NavLink>
+          </div>
         ))}
-      </>
+      </Slider>
     </div>
   );
 };

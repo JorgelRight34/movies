@@ -1,7 +1,7 @@
 import axios, { AxiosError, InternalAxiosRequestConfig } from "axios";
-import { completeLoadingBar } from "./components/LoadingBar";
+import { completeLoadingBar } from "../components/LoadingBar";
 import { toast } from "react-toastify";
-import { ACCESS_TOKEN, API_KEY } from "./lib/constants";
+import { ACCESS_TOKEN } from "../lib/constants";
 
 const api = axios.create({
   baseURL: "https://api.themoviedb.org/3/",

@@ -1,4 +1,4 @@
-import api from "../api";
+import api from "../data/api";
 import { API_KEY } from "../lib/constants";
 import { Movie } from "../models/movie";
 import { useEffect, useState } from "react";

@@ -6,7 +6,11 @@ const LoginBtn = () => {
     redirectToTMDBLogin(requestToken);
   };
 
-  return <button onClick={handleOnClick}>Login</button>;
+  return (
+    <button className="btn btn-accent px-3" onClick={handleOnClick}>
+      Login
+    </button>
+  );
 };
 
 export default LoginBtn;
