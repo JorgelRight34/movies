@@ -1,7 +1,14 @@
-import Layout from "../components/Layout";
+import { useEffect } from "react";
+import { useNavigate } from "react-router";
 
 const NotFound = () => {
-  return <Layout>Not Found</Layout>;
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    navigate("/");
+  }, []);
+
+  return <></>;
 };
 
 export default NotFound;

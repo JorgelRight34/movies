@@ -10,7 +10,7 @@ const useFavorites = (): [Movie[], number, () => void, () => void] => {
 
   const getFavoriteMovies = async () => {
     const response = await api.get(
-      `account/${ACCOUNT_ID}/favorite/movies?language=en-US&page=${page}&sort_by=created_at.asc`
+      `account/${ACCOUNT_ID}/favorite/movies?page=${page}&sort_by=created_at.asc`
     );
     setFavoriteMovies(response.data.results);
     setTotalPages(response.data.total_pages);

@@ -5,7 +5,7 @@
 }
 
 #root {
-  height: 100dvh;
+  height: 100vh;
   color: #fff;
   width: 100dvw;
   overflow-x: hidden;
@@ -41,23 +41,8 @@
   z-index: 100;
 }
 
-.movies-listings {
-  display: flex;
-  justify-content: center;
-  flex: wrap;
-}
-
 .movie-card img {
   transition: 0.3 ease;
-}
-
-.movie-card p,
-span {
-  opacity: 0.7;
-}
-
-.movie-card-container {
-  margin: 0 1rem;
 }
 
 .cast-list {
@@ -75,6 +60,21 @@ span {
   position: sticky;
   top: 0;
   z-index: 1000;
+}
+
+.small-logo {
+  height: 1.5rem; 
+  width: 1.5rem; 
+  object-fit: contain;
+}
+
+footer a {
+  text-decoration: none;
+  color: #fff;
+}
+
+.invert-filter {
+  filter: invert(1);
 }
 
 ::-webkit-scrollbar {

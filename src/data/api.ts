@@ -1,7 +1,7 @@
 import axios, { AxiosError, InternalAxiosRequestConfig } from "axios";
 import { completeLoadingBar } from "../components/common/LoadingBar";
 import { toast } from "react-toastify";
-import { ACCESS_TOKEN } from "../lib/constants";
+import { ACCESS_TOKEN, API_KEY, LANGUAGE } from "../lib/constants";
 
 const api = axios.create({
   baseURL: "https://api.themoviedb.org/3/",
@@ -13,7 +13,11 @@ api.interceptors.request.use(
   ):
     | Promise<InternalAxiosRequestConfig>
     | Promise<InternalAxiosRequestConfig> => {
+    // Include access token on all requests
     config.headers.Authorization = `Bearer ${ACCESS_TOKEN}`;
+
+    // Append language query and api key parameter to all requests
+    config.params = { language: LANGUAGE, API_KEY: API_KEY, ...config.params };
 
     return config;
   },

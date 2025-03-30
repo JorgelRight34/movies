@@ -11,12 +11,13 @@ const ProfileCard = ({ profile, subheading }: ProfileCardProps) => {
     <div className="row mx-0 p-3 border-bottom">
       <div className="col-lg-6 d-flex align-items-center">
         <img
+          alt={profile.name}
           loading="lazy"
           className="profile-pic rounded-circle me-3"
           src={
             profile.profile_path
               ? `https://image.tmdb.org/t/p/w92/${profile.profile_path}`
-              : "/default-profile-pic.webp"
+              : "/icons/default-profile-pic.webp"
           }
         />
         <b>{profile.name}</b>

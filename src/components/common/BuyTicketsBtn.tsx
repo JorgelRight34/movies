@@ -1,5 +1,6 @@
 import { NavLink } from "react-router";
 import { Movie } from "../../models/movie";
+import AccentBtn from "./AccentBtn";
 
 interface BuyTicketsBtn {
   movie: Movie;
@@ -12,13 +13,7 @@ const BuyTicketsBtn = ({ movie, className }: BuyTicketsBtn) => {
       className="text-decoration-none text-white"
       to={`/movies/${movie.id}`}
     >
-      <button
-        className={`btn btn-accent px-5 w-100 ${
-          className ? " " + className : ""
-        } `}
-      >
-        Buy Tickets
-      </button>
+      <AccentBtn className={className}>Comprar Tickets</AccentBtn>
     </NavLink>
   );
 };

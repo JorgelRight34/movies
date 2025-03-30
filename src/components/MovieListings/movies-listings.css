@@ -5,3 +5,10 @@
 .slick-slide > div {
     margin: 0 1rem;
 }
+
+.movies-listings {
+    display: flex;
+    justify-content: center;
+    flex: wrap;
+  }
+  

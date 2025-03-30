@@ -51,7 +51,7 @@ const Index = () => {
             className="text-decoration-none text-white"
             to={`/movies/list/now_playing`}
           >
-            <h3 className="mb-3">Playing Now</h3>
+            <h3 className="mb-3">Reproduciendo Ahora</h3>
           </NavLink>
           <MoviesListings movies={moviesPlayingNow} />
         </section>
@@ -60,7 +60,7 @@ const Index = () => {
             className="text-decoration-none text-white"
             to={`/movies/list/top_rated`}
           >
-            <h3 className="mb-3">Top Rated</h3>
+            <h3 className="mb-3">Más Valorados</h3>
           </NavLink>
           <MoviesListings movies={moviesTopRated} />
         </section>
@@ -79,7 +79,7 @@ const Index = () => {
             className="text-decoration-none text-white"
             to={`/movies/list/upcoming`}
           >
-            <h3 className="mb-3">Upcoming</h3>
+            <h3 className="mb-3">Próximamente</h3>
           </NavLink>
           <MoviesListings movies={moviesUpComing} />
         </section>

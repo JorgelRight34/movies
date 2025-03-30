@@ -8,7 +8,7 @@ const Favorites = () => {
 
   return (
     <MovieListLayout
-      title="Favorite Movies"
+      title="Películas Favoritas"
       goToNextPage={goToNextPage}
       goToPrevPage={goToPrevPage}
     >

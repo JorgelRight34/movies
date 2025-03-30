@@ -1,5 +1,4 @@
 import api from "../data/api";
-import { API_KEY } from "../lib/constants";
 import { Movie } from "../models/movie";
 import { useEffect, useState } from "react";
 import { MovieFilter } from "../models/movieFilter";
@@ -12,7 +11,7 @@ const useMovies = (
   const [totalPages, setTotalPages] = useState(0);
 
   const fetchMovies = async () => {
-    const response = await api.get(`movie/${endpoint}?api_key=${API_KEY}&page=${page}`);
+    const response = await api.get(`movie/${endpoint}?page=${page}&sort_by=original_title.desc`);
     setMovies(response.data.results);
     setTotalPages(response.data.total_pages);
   };

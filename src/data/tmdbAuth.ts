@@ -31,3 +31,8 @@ export const createSessionId = async (requestToken: string) => {
 
   return response.data.session_id;
 };
+
+export const handleTMDBAuth = async () => {
+  const requestToken = await createRequestToken();
+  redirectToTMDBLogin(requestToken);
+};

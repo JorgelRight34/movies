@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import api from "../data/api";
-import { API_KEY } from "../lib/constants";
 import { Movie } from "../models/movie";
 
 const useRecommendedMovies = (id: string): Movie[] => {
@@ -8,7 +7,7 @@ const useRecommendedMovies = (id: string): Movie[] => {
 
   const fetchMovies = async () => {
     const response = await api.get(
-      `movie/${id}/recommendations?api_key=${API_KEY}`
+      `movie/${id}/recommendations?sort_by=original_title.desc`
     );
     setMovies(response.data.results);
   };

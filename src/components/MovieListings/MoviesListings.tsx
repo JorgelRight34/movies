@@ -1,5 +1,3 @@
-import { useMemo } from "react";
-
 import MovieCard from "../MovieCard/MovieCard";
 import { Movie } from "../../models/movie";
 import Slider from "react-slick";
@@ -7,6 +5,7 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "./movies-listings.css";
+import MovieCardPlaceholder from "../MovieCard/MovieCardPlaceholder";
 
 interface MoviesListingsProps {
   movies: Movie[];
@@ -19,14 +18,6 @@ const MoviesListings = ({
   slidesToShow = 5,
   slidesToScroll = 3,
 }: MoviesListingsProps) => {
-  const orderedMovies = useMemo(
-    () =>
-      movies.sort((a, b) =>
-        a.title.toLowerCase().localeCompare(b.title.toLowerCase())
-      ),
-    [movies]
-  );
-
   const settings = {
     dots: true,
     infinite: true,
@@ -44,17 +35,23 @@ const MoviesListings = ({
     ],
   };
 
-  if (movies.length === 0) return <></>;
-
   return (
     <>
-      <div className={`slider-container`}>
+      <div className={`slider-container px-3 py-lg-0 px-lg-0`}>
         <Slider {...settings}>
-          {orderedMovies.map((movie) => (
-            <div key={movie.id} className={`col-lg-2 px-lg-0 py-5`}>
-              <MovieCard movie={movie} />
-            </div>
-          ))}
+          {movies.length > 0
+            ? movies.map((movie) => (
+                <div key={movie.id} className={`col-lg-2 px-lg-0 py-5`}>
+                  <MovieCard movie={movie} />
+                </div>
+              ))
+            : Array(slidesToShow)
+                .fill(null)
+                .map((_, key) => (
+                  <div key={key} className={`col-lg-2 px-lg-0 py-5`}>
+                    <MovieCardPlaceholder />
+                  </div>
+                ))}
         </Slider>
       </div>
     </>

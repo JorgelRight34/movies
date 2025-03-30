@@ -1,5 +1,6 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import "react-toastify/dist/ReactToastify.css";
+import "animate.css";
 import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router";
 import { lazy, Suspense } from "react";

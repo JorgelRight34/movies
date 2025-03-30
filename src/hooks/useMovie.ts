@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { Movie } from "../models/movie";
 import api from "../data/api";
-import { API_KEY } from "../lib/constants";
 import { Actor } from "../models/actor";
 import { toast } from "react-toastify";
 import { Worker } from "../models/worker";
@@ -16,12 +15,13 @@ const useMovie = (
   });
 
   const fetchMovie = async () => {
-    const response = await api.get(`movie/${id}?api_key=${API_KEY}`);
+    const response = await api.get(`movie/${id}?append_to_response=videos`);
+    if (response.status === 404) window.location.href = "/";
     setMovie(response.data);
   };
 
   const voteForMovie = async (rating: number) => {
-    const response = await api.post(`movie/${id}/rating?api_key=${API_KEY}`, {
+    const response = await api.post(`movie/${id}/rating?`, {
       value: rating,
     });
 
@@ -29,14 +29,14 @@ const useMovie = (
   };
 
   const fetchMovieCredits = async () => {
-    const response = await api.get(`movie/${id}/credits?api_key=${API_KEY}`);
+    const response = await api.get(`movie/${id}/credits`);
     setMovieCredits(response.data);
   };
 
   useEffect(() => {
     fetchMovie();
     fetchMovieCredits();
-  }, []);
+  }, [id]);
 
   return [movies, movieCredits, voteForMovie];
 };
