@@ -2,7 +2,6 @@ import { useMemo } from "react";
 
 import MovieCard from "../MovieCard/MovieCard";
 import { Movie } from "../../models/movie";
-import { NavLink } from "react-router";
 import Slider from "react-slick";
 
 import "slick-carousel/slick/slick.css";
@@ -34,20 +33,31 @@ const MoviesListings = ({
     speed: 500,
     slidesToShow: slidesToShow,
     slidesToScroll: slidesToScroll,
+    responsive: [
+      {
+        breakpoint: 768, // Breakpoint for mobile
+        settings: {
+          slidesToShow: 1, // Show only 3 slides on mobile
+          slidesToScroll: 1,
+        },
+      },
+    ],
   };
 
   if (movies.length === 0) return <></>;
 
   return (
-    <div className={`slider-container`}>
-      <Slider {...settings}>
-        {orderedMovies.map((movie) => (
-          <div className={`col-lg-2 py-5`}>
-            <MovieCard key={movie.id} movie={movie} />
-          </div>
-        ))}
-      </Slider>
-    </div>
+    <>
+      <div className={`slider-container`}>
+        <Slider {...settings}>
+          {orderedMovies.map((movie) => (
+            <div key={movie.id} className={`col-lg-2 px-lg-0 py-5`}>
+              <MovieCard movie={movie} />
+            </div>
+          ))}
+        </Slider>
+      </div>
+    </>
   );
 };
 

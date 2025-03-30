@@ -10,7 +10,7 @@ const useMovie = (
   id: string
 ): [Movie | null, { cast: Actor[], crew: Worker[] }, (rating: number) => Promise<void>] => {
   const [movies, setMovie] = useState<Movie | null>(null);
-  const [movieCredits, setMovieCredits] = useState<{ cast: Actor[], crew: Actor[] }>({
+  const [movieCredits, setMovieCredits] = useState<{ cast: Actor[], crew: Worker[] }>({
     cast: [],
     crew: []
   });

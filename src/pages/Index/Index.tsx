@@ -3,14 +3,15 @@ import MovieBackdrop from "../../components/MovieBackdrop/MovieBackdrop";
 import MoviesListings from "../../components/MovieListings/MoviesListings";
 import useMovies from "../../hooks/useMovies";
 import RatingStars from "../../components/RatingStars/RatingStars";
-import BuyTicketsBtn from "../../components/BuyTicketsBtn";
+import BuyTicketsBtn from "../../components/common/BuyTicketsBtn";
 import Layout from "../../layouts/Layout";
+import { NavLink } from "react-router";
 
 const Index = () => {
-  const moviesPlayingNow = useMovies("now_playing");
-  const moviesPopular = useMovies("popular");
-  const moviesTopRated = useMovies("top_rated");
-  const moviesUpComing = useMovies("upcoming");
+  const [moviesPlayingNow] = useMovies("now_playing");
+  const [moviesPopular] = useMovies("popular");
+  const [moviesTopRated] = useMovies("top_rated");
+  const [moviesUpComing] = useMovies("upcoming");
 
   // Most popular movie that is playing right now
   const mostPopularMovieNow = useMemo(() => {
@@ -36,26 +37,50 @@ const Index = () => {
               )}
             </div>
             <p className="mb-5">{mostPopularMovieNow.overview}</p>
-            <BuyTicketsBtn className="w-100" movie={mostPopularMovieNow} />
+            <BuyTicketsBtn
+              className="w-100 mb-3 mb-lg-0"
+              movie={mostPopularMovieNow}
+            />
           </MovieBackdrop>
         )}
       </div>
 
       <div className="bg-dark">
-        <section className="p-lg-5 border-bottom">
-          <h3 className="mb-3">Playing Now</h3>
+        <section className="p-3 p-lg-5 border-bottom">
+          <NavLink
+            className="text-decoration-none text-white"
+            to={`/movies/list/now_playing`}
+          >
+            <h3 className="mb-3">Playing Now</h3>
+          </NavLink>
           <MoviesListings movies={moviesPlayingNow} />
         </section>
-        <section className="p-lg-5 border-bottom">
-          <h3 className="mb-3">Top Rated</h3>
+        <section className="p-3 p-lg-5 border-bottom">
+          <NavLink
+            className="text-decoration-none text-white"
+            to={`/movies/list/top_rated`}
+          >
+            <h3 className="mb-3">Top Rated</h3>
+          </NavLink>
           <MoviesListings movies={moviesTopRated} />
         </section>
-        <section className="p-lg-5 border-bottom">
-          <h3 className="mb-3">Popular</h3>
+        <section className="p-3 p-lg-5 border-bottom">
+          <NavLink
+            className="text-decoration-none text-white"
+            to={`/movies/list/popular`}
+          >
+            <h3 className="mb-3">Popular</h3>
+          </NavLink>
+
           <MoviesListings movies={moviesPopular} />
         </section>
-        <section className="p-lg-5 bg-black">
-          <h3 className="mb-3">Upcoming</h3>
+        <section className="p-3 p-lg-5 bg-black">
+          <NavLink
+            className="text-decoration-none text-white"
+            to={`/movies/list/upcoming`}
+          >
+            <h3 className="mb-3">Upcoming</h3>
+          </NavLink>
           <MoviesListings movies={moviesUpComing} />
         </section>
       </div>

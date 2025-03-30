@@ -8,11 +8,9 @@ import Overview from "./components/Overview";
 import CastDetails from "./components/CastDetails";
 import "./movie-details.css";
 import CrewDetails from "./components/CrewDetails";
-import useAddMovieToFavorites from "../../hooks/useAddMovieToFavorites";
 
 const MovieDetails = () => {
   const { id } = useParams();
-  const addToFavorites = useAddMovieToFavorites();
   const [movie, credits, voteForMovie] = useMovie(id || "");
   const recommendeMovies = useRecommendedMovies(id || "");
 
@@ -20,12 +18,12 @@ const MovieDetails = () => {
 
   return (
     <Layout>
-      <div className="row p-lg-5 d-flex justify-content-center  mx-0 bg-medium">
-        <div className="bg-dark rounded-3 col-12 col-lg-10 p-lg-5">
-          <section className="border-bottom mb-5 pb-3">
+      <div className="row p-0 p-lg-5 d-flex justify-content-center  mx-0 bg-medium">
+        <div className="bg-dark rounded-3 col-12 col-lg-10 p-3 p-lg-5">
+          <section className="border-bottom mb-3 mb-lg-5 pb-3">
             <Details movie={movie} />
           </section>
-          <section className="row mx-0 border-bottom mb-5">
+          <section className="row mx-0 border-bottom mb-3 mb-lg-5">
             <div className="bg-dark rounded-3 p-3 shadow-sm">
               <Overview
                 voteForMovie={(value) => voteForMovie(value * 2)}
@@ -49,7 +47,7 @@ const MovieDetails = () => {
           </section>
         </div>
       </div>
-      <section className="p-lg-5 bg-dark">
+      <section className="p-3 p-lg-5 bg-dark">
         <h3 className="mb-3">Recommended</h3>
         {recommendeMovies.length > 0 ? (
           <MoviesListings movies={recommendeMovies} />

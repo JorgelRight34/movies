@@ -1,4 +1,4 @@
-import BuyTicketsBtn from "../../../components/BuyTicketsBtn";
+import BuyTicketsBtn from "../../../components/common/BuyTicketsBtn";
 import RatingStars from "../../../components/RatingStars/RatingStars";
 import useAddMovieToFavorites from "../../../hooks/useAddMovieToFavorites";
 import { getFullMovieImagePath } from "../../../lib/utils";
@@ -13,11 +13,11 @@ const Details = ({ movie }: DetailsProps) => {
 
   return (
     <div>
-      <h1>{movie.title}</h1>
+      <h1 className="mb-3">{movie.title}</h1>
       <div className="row mx-0">
         <div className="col-lg-6 p-lg-3 d-flex justify-content-center">
           <img
-            className="img-fluid movie-details-poster shadow-sm"
+            className="img-fluid movie-details-poster shadow-sm mb-3 mb-lg-0"
             src={getFullMovieImagePath(movie.poster_path, "original")}
             alt={movie.title}
           />
@@ -49,7 +49,7 @@ const Details = ({ movie }: DetailsProps) => {
           </div>
 
           <div className="row mx-0 mb-5">
-            <div className="col-lg-6 px-0 d-flex flex-column flex-wrap gap-5">
+            <div className="col-6 px-0 d-flex flex-column flex-wrap gap-5">
               <span className="border-bottom pb-3">
                 <b>Languages</b>
               </span>
@@ -60,7 +60,7 @@ const Details = ({ movie }: DetailsProps) => {
                 <b>Status</b>
               </span>
             </div>
-            <div className="col-lg-6 px-0 d-flex flex-column flex-wrap gap-5">
+            <div className="col-6 px-0 d-flex flex-column flex-wrap gap-5">
               <span className="border-bottom pb-3">
                 {movie.spoken_languages
                   .map((language) => language.english_name)

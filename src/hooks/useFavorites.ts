@@ -1,23 +1,34 @@
 import { useEffect, useState } from "react";
 import api from "../data/api";
 import { Movie } from "../models/movie";
+import { ACCOUNT_ID } from "../lib/constants";
 
-const useFavorites = (): Movie[] => {
+const useFavorites = (): [Movie[], number, () => void, () => void] => {
   const [favoriteMovies, setFavoriteMovies] = useState<Movie[]>([]);
+  const [page, setPage] = useState(1);
+  const [totalPages, setTotalPages] = useState(0);
 
   const getFavoriteMovies = async () => {
-    const sessionId = localStorage.getItem('sessionId') || null;
     const response = await api.get(
-      `account/${sessionId}/favorite/movies?language=en-US&page=1&sort_by=created_at.asc`
+      `account/${ACCOUNT_ID}/favorite/movies?language=en-US&page=${page}&sort_by=created_at.asc`
     );
     setFavoriteMovies(response.data.results);
+    setTotalPages(response.data.total_pages);
   };
+
+  const handleNextPage = () => {
+    if (page + 1 <= totalPages) setPage(prev => prev + 1);
+  }
+
+  const handlePreviusPage = () => {
+    if (page - 1 != 0) setPage(prev => prev - 1);
+  }
 
   useEffect(() => {
     getFavoriteMovies();
-  }, []);
+  }, [page]);
 
-  return favoriteMovies;
+  return [favoriteMovies, page, handleNextPage, handlePreviusPage];
 };
 
 export default useFavorites;

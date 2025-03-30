@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { createSessionId } from "../services/tmdbAuth";
+import { createSessionId } from "../data/tmdbAuth";
 import { useNavigate } from "react-router";
 
 const Approved = () => {

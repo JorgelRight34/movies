@@ -1,5 +1,5 @@
 import axios, { AxiosError, InternalAxiosRequestConfig } from "axios";
-import { completeLoadingBar } from "../components/LoadingBar";
+import { completeLoadingBar } from "../components/common/LoadingBar";
 import { toast } from "react-toastify";
 import { ACCESS_TOKEN } from "../lib/constants";
 

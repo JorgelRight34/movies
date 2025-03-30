@@ -1,4 +1,4 @@
-import { createRequestToken, redirectToTMDBLogin } from "../services/tmdbAuth";
+import { createRequestToken, redirectToTMDBLogin } from "../../data/tmdbAuth";
 
 const LoginBtn = () => {
   const handleOnClick = async () => {

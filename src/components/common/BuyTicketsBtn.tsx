@@ -1,5 +1,5 @@
 import { NavLink } from "react-router";
-import { Movie } from "../models/movie";
+import { Movie } from "../../models/movie";
 
 interface BuyTicketsBtn {
   movie: Movie;
