@@ -1,4 +1,4 @@
-import { KeyboardEventHandler, useState } from "react";
+import { KeyboardEventHandler, useRef, useState } from "react";
 import { useNavigate } from "react-router";
 import "./search-movie-input.css";
 
@@ -9,6 +9,14 @@ import "./search-movie-input.css";
  * `/movies/search` page with the query as a query parameter when the user
  * presses the Enter key.
  *
+ * On small devices instead of an input it renders a search icon, when the icon
+ * is clicked a modal is shown with a input for searching, above the input there's
+ * a button to close the form, as the user types on the form it's redirected to
+ * /movies/search with the updated query, fetching new data each time query changes,
+ * when the go back button is clicked. If the user is not on the home page already, it
+ * redirects the user to the home page and closes the form, if user already on home page it
+ * only closes the search form.
+ *
  * @component
  * @returns {JSX.Element} A search input field that triggers a redirect to the
  * search results page with the entered query as a parameter.
@@ -17,19 +25,23 @@ const SearchMovieInput = () => {
   const [query, setQuery] = useState("");
   const [showModal, setShowModal] = useState(false);
   const navigate = useNavigate();
+  const searchResultsPath = "/movies/search";
+  const timeOutRef = useRef<NodeJS.Timeout | null>(null);
 
   const handleOnSubmit: KeyboardEventHandler<HTMLInputElement> = (event) => {
-    if (event.key === "Enter") console.log("replace true");
-    navigate(`/movies/search?q=${query}`);
-  };
-
-  const toggleSearchForm = () => {
-    setShowModal((prev) => !prev);
-  };
-
-  const goBack = () => {
-    setShowModal(false);
-    navigate("/");
+    if (
+      event.key === "Enter" ||
+      window.location.pathname === searchResultsPath
+    ) {
+      if (timeOutRef.current) {
+        clearTimeout(timeOutRef.current);
+      } else if (query) {
+        navigate(`${searchResultsPath}?q=${query}`);
+      }
+      timeOutRef.current = setTimeout(() => {
+        navigate(`${searchResultsPath}?q=${query}`, { replace: true });
+      }, 500);
+    }
   };
 
   return (
@@ -45,7 +57,7 @@ const SearchMovieInput = () => {
       {/* Icon toggle element that opens a modal for search on small screens */}
       <span
         className="d-lg-none fs-1 material-icons-outlined"
-        onClick={toggleSearchForm}
+        onClick={() => setShowModal(true)}
       >
         search
       </span>
@@ -60,7 +72,7 @@ const SearchMovieInput = () => {
           {/* Go back arrow button, it takes you to home page if not already there */}
           <span
             className="d-lg-none fs-1 material-icons-outlined mb-3"
-            onClick={goBack}
+            onClick={() => setShowModal(false)}
           >
             arrow_back
           </span>

@@ -43,7 +43,7 @@ const Footer = () => {
     <footer className="bg-black text-light py-5">
       <div className="container">
         {/* Top row */}
-        <div className="row mb-5">
+        <div className="row px-5 mb-5">
           {/* Personal references */}
           <div className="d-block d-lg-flex justify-content-center flex-wrap gap-5">
             {references.map((reference, key) => (

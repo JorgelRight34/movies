@@ -36,12 +36,25 @@ const MovieListLayout = ({
           </div>
         </section>
         <div className="w-100 d-flex justify-content-center mt-5 mb-5">
-          <button className="btn btn-accent px-3 me-3" onClick={handlePrevPage}>
-            Previous Page
-          </button>
-          <button className="btn btn-accent px-3" onClick={handleNextPage}>
-            Next Page
-          </button>
+          <div>
+            <button
+              className="btn btn-accent px-3 me-3"
+              onClick={handlePrevPage}
+            >
+              <span className="d-flex align-items-center">
+                <span className="material-icons-outlined me-2">arrow_back</span>
+                Atrás
+              </span>
+            </button>
+            <button className="btn btn-accent px-3" onClick={handleNextPage}>
+              <span className="d-flex align-items-center">
+                Siguiente
+                <span className="material-icons-outlined ms-2">
+                  arrow_forward
+                </span>
+              </span>
+            </button>
+          </div>
         </div>
       </div>
     </Layout>
