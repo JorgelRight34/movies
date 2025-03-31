@@ -30,7 +30,7 @@ const MovieListLayout = ({
     <Layout>
       <div className="bg-dark">
         <section className="p-3 p-lg-5">
-          <h3 className="mb-3">{title}</h3>
+          <h3 className="border-accent-left mb-3">{title}</h3>
           <div className="d-flex justify-content-center flex-wrap gap-5 gap-lg-3 py-3 py-lg-5">
             {children}
           </div>

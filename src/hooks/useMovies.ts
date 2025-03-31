@@ -18,18 +18,23 @@ import { MovieFilter } from "../models/movieFilter";
  * const [movies, page, handleNextPage, handlePrevPage] = useMovies("popular");
  */
 const useMovies = (
-  endpoint: MovieFilter = "now_playing", query: string = ""
-): [Movie[], number, () => void, () => void] => {
+  endpoint: MovieFilter = "now_playing",
+  query: string = ""
+): [Movie[], number, () => void, () => void, () => void] => {
   const [movies, setMovies] = useState<Movie[]>([]);
   const [page, setPage] = useState(1);
   const [totalPages, setTotalPages] = useState(0);
 
   const fetchMovies = async () => {
     // Get path, if search is specified create the specific endpoint search/movie
-    const path = `${endpoint === "search" ? endpoint : "movie"}/${endpoint === "search" ? "movie" : endpoint}`
+    const path = `${endpoint === "search" ? endpoint : "movie"}/${
+      endpoint === "search" ? "movie" : endpoint
+    }`;
 
     // Fire request and get response
-    const response = await api.get(`${path}?page=${page}&sort_by=original_title.desc&${query}`);
+    const response = await api.get(
+      `${path}?page=${page}&sort_by=original_title.desc&${query}`
+    );
 
     // Update states
     setMovies(response.data.results);
@@ -37,18 +42,18 @@ const useMovies = (
   };
 
   const handleNextPage = () => {
-    if (page + 1 <= totalPages) setPage(prev => prev + 1);
-  }
+    if (page + 1 <= totalPages) setPage((prev) => prev + 1);
+  };
 
   const handlePrevPage = () => {
-    if (page - 1 != 0) setPage(prev => prev - 1);
-  }
+    if (page - 1 != 0) setPage((prev) => prev - 1);
+  };
 
   useEffect(() => {
     fetchMovies();
   }, [page]);
 
-  return [movies, page, handleNextPage, handlePrevPage];
+  return [movies, page, handleNextPage, handlePrevPage, fetchMovies];
 };
 
 export default useMovies;

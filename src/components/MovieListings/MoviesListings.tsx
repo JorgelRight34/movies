@@ -37,14 +37,14 @@ const MoviesListings = ({
           {/* If movies is empty show a list of placeholders, else show the movies */}
           {movies.length > 0
             ? movies.map((movie) => (
-                <div key={movie.id} className={`col-lg-2 px-lg-0 py-5`}>
+                <div key={movie.id} className={`col-12 col-lg-2 px-lg-0 py-5`}>
                   <MovieCard movie={movie} />
                 </div>
               ))
             : Array(slidesToShow)
                 .fill(null)
                 .map((_, key) => (
-                  <div key={key} className={`col-lg-2 px-lg-0 py-5`}>
+                  <div key={key} className={`col-12 col-lg-2 px-lg-0 py-5`}>
                     <MovieCardPlaceholder />
                   </div>
                 ))}

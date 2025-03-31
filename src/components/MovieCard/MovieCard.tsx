@@ -35,13 +35,11 @@ const MovieCard = ({ movie, showAddToFavoriteBtn = true }: MovieProps) => {
         </div>
       )}
       {/* Poster */}
-
       <LazyLoadImage
         className="img-fluid d-block d-lg-block"
         src={getFullMovieImagePath(movie.poster_path)}
         alt={movie.title}
       />
-
       {/* Movie description */}
       <div className="movie-card-description p-3">
         <h5 className="text-truncate" title={movie.title}>
@@ -52,7 +50,7 @@ const MovieCard = ({ movie, showAddToFavoriteBtn = true }: MovieProps) => {
             <time>{movie.release_date}</time>
           </span>
           <span className="ms-0 ms-lg-auto">
-            Votes: {movie.vote_average}/10
+            Votes: {movie.vote_average?.toFixed(1)}/10
           </span>
         </div>
         <BuyTicketsBtn label="Más Detalles" className="w-100" movie={movie} />

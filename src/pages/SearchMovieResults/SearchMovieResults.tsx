@@ -2,6 +2,7 @@ import { useLocation } from "react-router";
 import MovieListLayout from "../../layouts/MovieListLayout";
 import useMovies from "../../hooks/useMovies";
 import MovieCard from "../../components/MovieCard/MovieCard";
+import { useEffect } from "react";
 
 /**
  * Page component for search movies result.
@@ -13,10 +14,15 @@ const SearchMovieResults = () => {
   const location = useLocation();
   const params = new URLSearchParams(location.search);
   const query = params.get("q") || "";
-  const [movies, , handleNextPage, handlePrevPage] = useMovies(
+  const [movies, , handleNextPage, handlePrevPage, fetchMovies] = useMovies(
     "search",
     `query=${query}`
   );
+
+  useEffect(() => {
+    // Re render
+    fetchMovies();
+  }, [location.search]);
 
   return (
     <MovieListLayout
@@ -25,7 +31,10 @@ const SearchMovieResults = () => {
       goToPrevPage={handlePrevPage}
     >
       {movies.map((movie) => (
-        <div className="col-lg-2 movie-card-container">
+        <div
+          key={movie.id}
+          className="col-10 col-lg-2 movie-card-container mb-lg-5"
+        >
           <MovieCard
             showAddToFavoriteBtn={false}
             key={movie.id}
