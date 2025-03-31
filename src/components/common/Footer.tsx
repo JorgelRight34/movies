@@ -28,7 +28,7 @@ const Footer = () => {
     {
       label: "LinkedIn",
       src: "/icons/linkedin-logo.webp",
-      href: "https://linkedin.com/in/jorge-lorenzo-aa79042a7/",
+      href: "https://linkedin.com/in/jorge-lorenzo-mendez/",
       className: "invert-filter",
     },
     {
@@ -49,6 +49,7 @@ const Footer = () => {
             {references.map((reference, key) => (
               <a
                 className="d-flex align-items-center mb-5 mb-lg-0"
+                target="_blank"
                 href={reference.href}
                 key={key}
               >

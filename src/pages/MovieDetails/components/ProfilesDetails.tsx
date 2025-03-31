@@ -1,3 +1,4 @@
+import CustomSlider from "../../../components/common/CustomSlider";
 import ProfileCard from "../../../components/ProfileCard/ProfileCard";
 import { Actor } from "../../../models/actor";
 import { Worker } from "../../../models/worker";
@@ -18,11 +19,10 @@ interface ProfilesDetails {
  */
 const ProfilesDetails = ({ profiles, subheadingKey }: ProfilesDetails) => {
   return (
-    <ul className="list-unstyled">
-      {profiles.map((profile, key) => (
-        <li>
+    <CustomSlider>
+      {profiles.map((profile) => (
+        <div key={profile.credit_id} className="col-lg-4">
           <ProfileCard
-            key={key}
             profile={profile}
             subheading={
               subheadingKey in profile
@@ -30,9 +30,9 @@ const ProfilesDetails = ({ profiles, subheadingKey }: ProfilesDetails) => {
                 : ""
             }
           />
-        </li>
+        </div>
       ))}
-    </ul>
+    </CustomSlider>
   );
 };
 

@@ -22,19 +22,20 @@ const Details = ({ movie }: DetailsProps) => {
 
   return (
     <div>
-      {/* Header */}
-      <h1 className="mb-3">{movie.title}</h1>
       <div className="row mx-0">
+        <h1 className="d-block d-lg-none mb-3">{movie.title}</h1>
         {/* Poster image on the first column */}
-        <div className="col-lg-6 p-lg-3 d-flex justify-content-center">
+        <div className="col-lg-6 p-lg-3 d-flex align-items-center justify-content-center">
           <img
-            className="img-fluid movie-details-poster shadow-sm mb-3 mb-lg-0"
+            className="img-fluid movie-details-poster shadow-lg mb-3 mb-lg-0"
             src={getFullMovieImagePath(movie.poster_path, "original")}
             alt={movie.title}
           />
         </div>
         {/* Second column */}
         <div className="col-lg-6 p-lg-3">
+          {/* Header */}
+          <h1 className="d-none d-lg-block mb-3">{movie.title}</h1>
           <div className="mb-5">
             {/* Companies and release date */}
             <h4>{movie.production_companies?.[0]?.name}</h4>
@@ -83,6 +84,11 @@ const Details = ({ movie }: DetailsProps) => {
               <dt>Runtime</dt>
               <dd className="ms-auto">{movie.runtime} mins</dd>
             </dl>
+            {/* Runtime */}
+            <dl className="d-flex border-bottom p-2">
+              <dt>Votes</dt>
+              <dd className="ms-auto">{movie.vote_average}/10</dd>
+            </dl>
             {/* Status */}
             <dl className="d-flex border-bottom p-2">
               <dt>Status</dt>
@@ -94,7 +100,7 @@ const Details = ({ movie }: DetailsProps) => {
           <BuyTicketsBtn className="w-100 mb-3" movie={movie} />
           {/* Button to add movie to favorites */}
           <button
-            className="btn bg-black border text-white w-100"
+            className="btn bg-black text-white w-100"
             onClick={() => addMovieToFavorites(movie.id)}
           >
             Add to Favorites

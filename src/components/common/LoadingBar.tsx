@@ -1,14 +1,14 @@
 import { useRef } from "react";
 import TopLoadingBar from "react-top-loading-bar";
 
-export const loadingBarRef = { current: null as TopLoadingBar | null };
+export const loadingBarRef = { current: null as typeof TopLoadingBar | null };
 
 /**
  * Starts filling the loading bar.
  *
  */
 export const startLoadingBar = () => {
-  loadingBarRef.current?.continuousStart();
+  (loadingBarRef.current as any)?.continuousStart();
 };
 
 /**
@@ -16,7 +16,7 @@ export const startLoadingBar = () => {
  *
  */
 export const completeLoadingBar = () => {
-  loadingBarRef.current?.complete();
+  (loadingBarRef.current as any)?.complete();
 };
 
 /**
@@ -29,10 +29,13 @@ export const completeLoadingBar = () => {
  */
 const LoadingBar = () => {
   // prettier-ignore
-  loadingBarRef.current = useRef<TopLoadingBar>(null).current;
+  loadingBarRef.current = useRef<typeof TopLoadingBar>(null).current;
 
   return (
-    <TopLoadingBar color="red" ref={(ref) => (loadingBarRef.current = ref)} />
+    <TopLoadingBar
+      color="red"
+      ref={(ref) => (loadingBarRef.current = ref as any)}
+    />
   );
 };
 

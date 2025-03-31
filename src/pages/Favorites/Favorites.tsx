@@ -18,7 +18,7 @@ const Favorites = () => {
       goToPrevPage={goToPrevPage}
     >
       {favoriteMovies.map((movie) => (
-        <div className="col-lg-2 movie-card-container">
+        <div key={movie.id} className="col-lg-2 movie-card-container mb-3">
           <MovieCard
             showAddToFavoriteBtn={false}
             key={movie.id}

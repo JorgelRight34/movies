@@ -35,17 +35,13 @@ const MovieCard = ({ movie, showAddToFavoriteBtn = true }: MovieProps) => {
         </div>
       )}
       {/* Poster */}
+
       <LazyLoadImage
         className="img-fluid d-block d-lg-block"
-        effect="blur"
         src={getFullMovieImagePath(movie.poster_path)}
         alt={movie.title}
-        style={{
-          borderRadius: "8px",
-          display: "block",
-          backgroundColor: "#cccccc", // Gray background placeholder
-        }}
       />
+
       {/* Movie description */}
       <div className="movie-card-description p-3">
         <h5 className="text-truncate" title={movie.title}>

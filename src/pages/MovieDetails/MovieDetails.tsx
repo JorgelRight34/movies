@@ -39,11 +39,11 @@ const MovieDetails = () => {
             </div>
           </section>
           {/* Movie cast and crew section */}
-          <section className="row mx-0 border-bottom pb-5">
+          <section className="border-bottom pb-5 mb-3 mb-lg-5">
             {/* Cast list */}
-            <div className="col-lg-6 p-3">
-              <h3>Cast</h3>
-              <div className="profiles px-3">
+            <div className="p-3">
+              <h3 className="border-accent-left mb-3">Cast</h3>
+              <div className="px-3">
                 <ProfilesDetails
                   profiles={credits.cast}
                   subheadingKey="character"
@@ -51,9 +51,9 @@ const MovieDetails = () => {
               </div>
             </div>
             {/* Crew list */}
-            <div className="col-lg-6 p-3">
-              <h3>Crew</h3>
-              <div className="profiles px-3">
+            <div className="p-3">
+              <h3 className="border-accent-left mb-3">Crew</h3>
+              <div className="px-3">
                 <ProfilesDetails profiles={credits.crew} subheadingKey="job" />
               </div>
             </div>
