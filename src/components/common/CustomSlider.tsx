@@ -13,8 +13,8 @@ interface CustomSliderProps {
 }
 
 const CustomSlider = ({
-  dots = true,
-  infinite = true,
+  dots = false,
+  infinite = false,
   speed = 500,
   slidesToShow = 5,
   slidesToScroll = 3,

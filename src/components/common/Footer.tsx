@@ -74,6 +74,8 @@ const Footer = () => {
             </p>
           </div>
         </div>
+        {/* Div that ocuppies the space of the bottom navbar on small devices */}
+        <div className="d-block d-lg-none" style={{ height: "5rem" }}></div>
       </div>
     </footer>
   );

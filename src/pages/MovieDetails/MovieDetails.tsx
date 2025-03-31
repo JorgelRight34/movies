@@ -19,6 +19,11 @@ const MovieDetails = () => {
   const [movie, credits, voteForMovie] = useMovie(id || "");
   const recommendeMovies = useRecommendedMovies(id || "");
 
+  // The value is multiplied by two because it's a rating out of 5 stars
+  // And TMDB accepts a rating out of 10, so to normalize it, it's multiplied
+  // by two, meaning that if it's 5 stars on the TMDB API it will receive 10.
+  const handleVoteForMovie = (value: number) => voteForMovie(value * 2);
+
   if (!movie) return <></>;
 
   return (
@@ -27,22 +32,21 @@ const MovieDetails = () => {
         <div className="bg-dark rounded-3 col-12 col-lg-10 p-3 px-lg-5">
           {/* Movie details section */}
           <section className="border-bottom mb-3 mb-lg-5 pt-3 pb-5">
-            <Details movie={movie} />
+            <Details movie={movie} voteForMovie={handleVoteForMovie} />
           </section>
           {/* Movie overview section */}
           <section className="row mx-0 border-bottom mb-3 mb-lg-5 pb-5">
             <div className="bg-dark rounded-3 p-3 shadow-sm">
-              <Overview
-                voteForMovie={(value) => voteForMovie(value * 2)}
-                movie={movie}
-              />
+              <Overview voteForMovie={handleVoteForMovie} movie={movie} />
             </div>
           </section>
           {/* Movie cast and crew section */}
           <section className="border-bottom pb-5 mb-3 mb-lg-5">
             {/* Cast list */}
             <div className="p-3">
-              <h3 className="border-accent-left mb-3">Cast</h3>
+              <h3 className="border-accent-left mb-3">
+                Cast ({credits.cast.length})
+              </h3>
               <div className="px-3">
                 <ProfilesDetails
                   profiles={credits.cast}
@@ -52,7 +56,9 @@ const MovieDetails = () => {
             </div>
             {/* Crew list */}
             <div className="p-3">
-              <h3 className="border-accent-left mb-3">Crew</h3>
+              <h3 className="border-accent-left mb-3">
+                Crew ({credits.crew.length})
+              </h3>
               <div className="px-3">
                 <ProfilesDetails profiles={credits.crew} subheadingKey="job" />
               </div>
