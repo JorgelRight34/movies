@@ -8,6 +8,14 @@ interface OverviewProps {
   voteForMovie: (value: number) => void;
 }
 
+/**
+ * An overview displaying the movie important details such as title, tagline, rating, trailer and more.
+ *
+ * @component
+ * @param {Object} props.props - The properties passed to the component.
+ * @param {Movie} props.movie - The movie associated with the overview.
+ * @returns {JSX.Element} The rendered movie overview component.
+ */
 const Overview = ({ movie, voteForMovie }: OverviewProps) => {
   const trailer = useMemo(
     () =>

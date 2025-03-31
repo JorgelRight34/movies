@@ -1,16 +1,21 @@
 import { NavLink } from "react-router";
 import LoginBtn from "./LoginBtn";
 import { handleTMDBAuth } from "../../data/tmdbAuth";
+import SearchMovieInput from "./SearchMovieInput";
 
 const Navbar = () => {
   return (
     <>
-      <header className="d-none d-lg-block">
+      <header className="d-none d-lg-block sticky-top">
         <nav className="navbar bg-black p-lg-3 px-lg-5 shadow-sm">
           <div>
-            <NavLink to={`/`}>
-              <h3>My Cinemas</h3>
+            <NavLink className="d-flex align-items-center" to={`/`}>
+              <img src="/logo.png" className="navbar-brand me-2" />
+              <h3 className="mb-0">Movies Inc</h3>
             </NavLink>
+          </div>
+          <div className="ms-auto">
+            <SearchMovieInput />
           </div>
           <div className="d-flex align-items-center flex-wrap gap-5 ms-auto">
             <NavLink to="/">Películas</NavLink>

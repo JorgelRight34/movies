@@ -6,7 +6,7 @@ import MoviesListings from "../../components/MovieListings/MoviesListings";
 import Details from "./components/Details";
 import Overview from "./components/Overview";
 import "./movie-details.css";
-import ProfileDetails from "./components/ProfileDetails";
+import ProfilesDetails from "./components/ProfilesDetails";
 
 const MovieDetails = () => {
   const { id } = useParams();
@@ -17,8 +17,8 @@ const MovieDetails = () => {
 
   return (
     <Layout>
-      <div className="row p-0 p-lg-5 d-flex justify-content-center  mx-0 bg-medium">
-        <div className="bg-dark rounded-3 col-12 col-lg-10 p-3 p-lg-5">
+      <div className="row p-0 p-lg-5 d-flex justify-content-center mx-0 bg-medium">
+        <div className="bg-dark rounded-3 col-12 col-lg-10 p-3 px-lg-5">
           <section className="border-bottom mb-3 mb-lg-5 pt-3 pb-5">
             <Details movie={movie} />
           </section>
@@ -34,7 +34,7 @@ const MovieDetails = () => {
             <div className="col-lg-6 p-3">
               <h3>Cast</h3>
               <div className="profiles px-3">
-                <ProfileDetails
+                <ProfilesDetails
                   profiles={credits.cast}
                   subheadingKey="character"
                 />
@@ -43,13 +43,13 @@ const MovieDetails = () => {
             <div className="col-lg-6 p-3">
               <h3>Crew</h3>
               <div className="profiles px-3">
-                <ProfileDetails profiles={credits.crew} subheadingKey="job" />
+                <ProfilesDetails profiles={credits.crew} subheadingKey="job" />
               </div>
             </div>
           </section>
         </div>
       </div>
-      <section className="p-3 p-lg-5 bg-dark">
+      <section className="p-3 p-lg-5 bg-black">
         <h3 className="mb-3">Recomendados</h3>
         {recommendeMovies.length > 0 ? (
           <MoviesListings movies={recommendeMovies} />

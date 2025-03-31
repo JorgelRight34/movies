@@ -9,6 +9,14 @@ interface DetailsProps {
   movie: Movie;
 }
 
+/**
+ * A details component for displaying the movie details.
+ *
+ * @component
+ * @param {Object} props.props - The properties passed to the component.
+ * @param {Movie} props.movie - The movie associated with the details.
+ * @returns {JSX.Element} The rendered movie details component.
+ */
 const Details = ({ movie }: DetailsProps) => {
   const addMovieToFavorites = useAddMovieToFavorites();
 

@@ -1,5 +1,10 @@
 import AccentBtn from "../common/AccentBtn";
 
+/**
+ * Component that serve as loading screens for movies.
+ *
+ * @component
+ */
 const MovieCardPlaceholder = () => {
   return (
     <article className="movie-card border shadow-sm rounded-3">

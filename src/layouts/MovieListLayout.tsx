@@ -1,4 +1,4 @@
-import { ReactNode, useRef } from "react";
+import { ReactNode } from "react";
 import Layout from "./Layout";
 
 interface MovieListLayoutProps {
@@ -14,10 +14,7 @@ const MovieListLayout = ({
   goToPrevPage,
   children,
 }: MovieListLayoutProps) => {
-  const topRef = useRef<HTMLDivElement>(null);
-
-  const scrollToTop = () =>
-    topRef.current?.scrollIntoView({ behavior: "smooth" });
+  const scrollToTop = () => document.getElementById("root")?.scrollTo(0, 0);
 
   const handleNextPage = () => {
     scrollToTop();
@@ -31,7 +28,6 @@ const MovieListLayout = ({
 
   return (
     <Layout>
-      <div ref={topRef}></div>
       <div className="bg-dark">
         <section className="p-3 p-lg-5">
           <h3 className="mb-3">{title}</h3>

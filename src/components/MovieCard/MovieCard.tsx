@@ -3,17 +3,29 @@ import { getFullMovieImagePath } from "../../lib/utils";
 import { Movie } from "../../models/movie";
 import BuyTicketsBtn from "../common/BuyTicketsBtn";
 import "./movie-card.css";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import "react-lazy-load-image-component/src/effects/blur.css";
 
 interface MovieProps {
   showAddToFavoriteBtn?: boolean;
   movie: Movie;
 }
 
+/**
+ * A card component for displaying the movie details.
+ *
+ * @component
+ * @param {Object} props.props - The properties passed to the component.
+ * @param {Movie} props.movie - The movie associated with the backdrop.
+ * @param {boolean} [showAddToFavoriteBtn] - Show an icon with a heart to add movie to favorites.
+ * @returns {JSX.Element} The rendered card backdrop component.
+ */
 const MovieCard = ({ movie, showAddToFavoriteBtn = true }: MovieProps) => {
   const addMovieToFavorites = useAddMovieToFavorites();
 
   return (
     <article className="movie-card border shadow-sm rounded-3">
+      {/* Add to favorite button */}
       {showAddToFavoriteBtn && (
         <div
           className="add-to-favorites-btn rounded-circle p-1"
@@ -22,12 +34,16 @@ const MovieCard = ({ movie, showAddToFavoriteBtn = true }: MovieProps) => {
           <span className="material-icons-outlined">favorite_border</span>
         </div>
       )}
-      <img
+      {/* Poster */}
+
+      <LazyLoadImage
         className="img-fluid d-block d-lg-block"
+        effect="blur"
         src={getFullMovieImagePath(movie.poster_path)}
-        loading="lazy"
         alt={movie.title}
       />
+
+      {/* Movie description */}
       <div className="movie-card-description p-3">
         <h5 className="text-truncate" title={movie.title}>
           {movie.title}
@@ -40,7 +56,7 @@ const MovieCard = ({ movie, showAddToFavoriteBtn = true }: MovieProps) => {
             Votes: {movie.vote_average}/10
           </span>
         </div>
-        <BuyTicketsBtn className="w-100" movie={movie} />
+        <BuyTicketsBtn label="Más Detalles" className="w-100" movie={movie} />
       </div>
     </article>
   );

@@ -5,15 +5,20 @@ import AccentBtn from "./AccentBtn";
 interface BuyTicketsBtn {
   movie: Movie;
   className?: string;
+  label?: string;
 }
 
-const BuyTicketsBtn = ({ movie, className }: BuyTicketsBtn) => {
+const BuyTicketsBtn = ({
+  label = "Comprar Tickets",
+  movie,
+  className,
+}: BuyTicketsBtn) => {
   return (
     <NavLink
       className="text-decoration-none text-white"
       to={`/movies/${movie.id}`}
     >
-      <AccentBtn className={className}>Comprar Tickets</AccentBtn>
+      <AccentBtn className={className}>{label}</AccentBtn>
     </NavLink>
   );
 };

@@ -6,6 +6,13 @@ interface LayoutProps {
   children: ReactNode;
 }
 
+/**
+ * Layout component for all pages. Includes the navbar and footer of the app.
+ *
+ * @component
+ * @param {ReactNode} [props.children] - Child elements to render.
+ * @returns {JSX.Element} The rendered movie backdrop component.
+ */
 const Layout = ({ children }: LayoutProps) => {
   return (
     <>

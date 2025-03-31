@@ -7,6 +7,14 @@ interface MoviePosterProps {
   movie: Movie;
 }
 
+/**
+ * A movie poster component for displaying the poster of the movie.
+ *
+ * @component
+ * @param {Object} props.props - The properties passed to the component.
+ * @param {Movie} props.movie - The movie associated with the poster.
+ * @returns {JSX.Element} The rendered movie poster component.
+ */
 const MoviePoster = ({ movie }: MoviePosterProps) => {
   return (
     <div className="poster bg-dark">

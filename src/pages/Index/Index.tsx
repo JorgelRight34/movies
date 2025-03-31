@@ -25,6 +25,7 @@ const Index = () => {
   return (
     <Layout>
       <div>
+        {/* Render a widget for the most popular movie playing right now */}
         {mostPopularMovieNow && (
           <MovieBackdrop movie={mostPopularMovieNow}>
             <div className="mb-5">
@@ -38,6 +39,7 @@ const Index = () => {
             </div>
             <p className="mb-5">{mostPopularMovieNow.overview}</p>
             <BuyTicketsBtn
+              label="Más Detalles"
               className="w-100 mb-3 mb-lg-0"
               movie={mostPopularMovieNow}
             />
@@ -45,7 +47,9 @@ const Index = () => {
         )}
       </div>
 
+      {/* List of movies by category of streaming */}
       <div className="bg-dark">
+        {/* Now Playing */}
         <section className="p-3 p-lg-5 border-bottom">
           <NavLink
             className="text-decoration-none text-white"
@@ -55,6 +59,7 @@ const Index = () => {
           </NavLink>
           <MoviesListings movies={moviesPlayingNow} />
         </section>
+        {/* Top Rated */}
         <section className="p-3 p-lg-5 border-bottom">
           <NavLink
             className="text-decoration-none text-white"
@@ -64,6 +69,7 @@ const Index = () => {
           </NavLink>
           <MoviesListings movies={moviesTopRated} />
         </section>
+        {/* Popular */}
         <section className="p-3 p-lg-5 border-bottom">
           <NavLink
             className="text-decoration-none text-white"
@@ -74,6 +80,7 @@ const Index = () => {
 
           <MoviesListings movies={moviesPopular} />
         </section>
+        {/* Upcoming */}
         <section className="p-3 p-lg-5 bg-black">
           <NavLink
             className="text-decoration-none text-white"

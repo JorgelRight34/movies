@@ -1,3 +1,4 @@
+/* Variables */
 :root {
   --accent-color: #800020;
   --background-dark: #1e1e1e;
@@ -5,13 +6,14 @@
 }
 
 #root {
-  height: 100vh;
-  color: #fff;
-  width: 100dvw;
-  overflow-x: hidden;
   background-color: var(--background-dark);
+  color: #fff;
+  height: 100vh;
+  overflow-x: hidden;
+  width: 100dvw;
 }
 
+/* Utility */
 .btn-accent {
   background: var(--accent-color) !important;
   color: #fff;
@@ -33,16 +35,12 @@
   color: var(--accent-color);
 }
 
-.movie-details-poster {
-  height: 40rem;
-}
-
-.top-ref {
-  z-index: 100;
-}
-
-.movie-card img {
-  transition: 0.3 ease;
+.search-movie-input {
+  border: none;
+  border-bottom: 2px solid var(--accent-color);
+  outline: none;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  width: 32vw;
 }
 
 .cast-list {
@@ -51,8 +49,8 @@
 }
 
 .navbar a {
-  text-decoration: none;
   color: #fff;
+  text-decoration: none;
 }
 
 .navbar {
@@ -62,21 +60,26 @@
   z-index: 1000;
 }
 
+.navbar-brand {
+  height: 2.5rem;
+}
+
 .small-logo {
-  height: 1.5rem; 
-  width: 1.5rem; 
+  height: 1.5rem;
   object-fit: contain;
+  width: 1.5rem;
 }
 
 footer a {
-  text-decoration: none;
   color: #fff;
+  text-decoration: none;
 }
 
 .invert-filter {
   filter: invert(1);
 }
 
+/* Scrollbar */
 ::-webkit-scrollbar {
   width: 0.33em;
 }
@@ -90,6 +93,7 @@ footer a {
   border-radius: 100vw;
 }
 
+/* Responsive */
 @media (max-width: 500px) {
   ::-webkit-scrollbar {
     width: 0;
