@@ -1,7 +1,3 @@
-import "bootstrap/dist/css/bootstrap.min.css";
-import "react-toastify/dist/ReactToastify.css";
-import "animate.css";
-import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router";
 import { lazy, Suspense } from "react";
 import LoadingBar from "./components/common/LoadingBar";
@@ -24,7 +20,7 @@ function App() {
       <LoadingBar />
       <Router>
         <ScrollToTop />
-        <Suspense fallback={<div></div>}>
+        <Suspense fallback={<></>}>
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/approved" element={<Approved />} />

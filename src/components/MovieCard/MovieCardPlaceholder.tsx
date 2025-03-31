@@ -8,6 +8,7 @@ import AccentBtn from "../common/AccentBtn";
 const MovieCardPlaceholder = () => {
   return (
     <article className="movie-card border shadow-sm rounded-3">
+      {/* Image gray placeholder */}
       <svg
         className="bd-placeholder-img card-img-top"
         width="100%"
@@ -19,9 +20,8 @@ const MovieCardPlaceholder = () => {
         focusable="false"
       >
         <title>Placeholder</title>
-        <rect width="100%" height="100%" fill="#868e96"></rect>
       </svg>
-
+      {/* Movie description */}
       <div className="movie-card-description p-3">
         <h5>
           <span className="placeholder col-6"></span>

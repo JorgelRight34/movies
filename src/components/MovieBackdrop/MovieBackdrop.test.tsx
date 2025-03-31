@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import MovieBackdrop from "./MovieBackdrop";
-import { mockMovie } from "../MovieCard/constants";
+import { mockMovie } from "../../lib/constants";
 
 describe("MovieBackdrop", () => {
   it("it renders", async () => {

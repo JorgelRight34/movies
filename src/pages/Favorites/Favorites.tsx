@@ -1,8 +1,13 @@
 import MovieCard from "../../components/MovieCard/MovieCard";
 import useFavorites from "../../hooks/useFavorites";
 import MovieListLayout from "../../layouts/MovieListLayout";
-import "./favorites.css";
 
+/**
+ * Page component for favorite movies of current user.
+ *
+ * @component
+ * @returns {JSX.Element} The rendered favorite movies page component.
+ */
 const Favorites = () => {
   const [favoriteMovies, , goToNextPage, goToPrevPage] = useFavorites();
 

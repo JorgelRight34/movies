@@ -5,6 +5,12 @@ import MovieListLayout from "../../layouts/MovieListLayout";
 import { MovieFilter } from "../../models/movieFilter";
 import { useMemo } from "react";
 
+/**
+ * Page component for a list of movies of the type specified on the path.
+ *
+ * @component
+ * @returns {JSX.Element} The rendered movie list page component.
+ */
 const MovieList = () => {
   const { filter } = useParams();
   const [movies, , goToNextPage, goToPrevPage] = useMovies(

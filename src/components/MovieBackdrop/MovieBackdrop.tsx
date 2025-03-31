@@ -27,6 +27,7 @@ const MovieBackdrop = ({ movie, children }: MovieBackdropProps) => {
       <div className="col-lg-7 order-1 order-lg-2 position-relative">
         {/* Backdrop with fade in effect */}
         <div className="movie-backdrop-container">
+          {/* Backdrop image fading in to black from left to right being right the darkest */}
           <img
             className="img-fluid movie-backdrop-img"
             loading="lazy"

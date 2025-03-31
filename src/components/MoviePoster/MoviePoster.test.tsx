@@ -1,7 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import { describe, it } from "vitest";
-import { mockMovie } from "../MovieCard/constants";
 import MoviePoster from "./MoviePoster";
+import { mockMovie } from "../../lib/constants";
 
 describe("MoviePoster", () => {
   it("poster image should have as alt the movie title", async () => {

@@ -27,11 +27,14 @@ const Overview = ({ movie, voteForMovie }: OverviewProps) => {
   return (
     <>
       <section className="mb-5">
+        {/* Header */}
         <div className="mb-3">
           <h2>Panorama</h2>
           <h4>{movie.tagline}</h4>
         </div>
+        {/* Overview */}
         <p className="mb-3">{movie.overview}</p>
+        {/* Trailer */}
         <div className="d-flex justify-content-center">
           {trailer && (
             <iframe
@@ -46,6 +49,7 @@ const Overview = ({ movie, voteForMovie }: OverviewProps) => {
           )}
         </div>
       </section>
+      {/* Rating stars form */}
       <div>
         <h4>Leave your rating</h4>
         <RatingStars

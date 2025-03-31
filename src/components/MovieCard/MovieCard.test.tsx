@@ -1,7 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import MovieCard from "./MovieCard";
 import { MemoryRouter } from "react-router";
-import { mockMovie } from "./constants";
+import { mockMovie } from "../../lib/constants";
 import { getFullMovieImagePath } from "../../lib/utils";
 
 describe("MovieCard", () => {

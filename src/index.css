@@ -1,68 +1,101 @@
+/* Variables */
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  --accent-color: #800020;
+  --background-dark: #1e1e1e;
+  --background-medium: #2a2a2a;
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
-
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+#root {
+  background-color: var(--background-dark);
+  color: #fff;
+  height: 100vh;
+  overflow-x: hidden;
+  width: 100dvw;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+/* Utility */
+.btn-accent {
+  background: var(--accent-color) !important;
+  color: #fff;
 }
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+.bg-dark {
+  background-color: var(--background-dark) !important;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
+.bg-black {
+  background-color: #000;
+}
+
+.bg-medium {
+  background-color: var(--background-medium);
+}
+
+.text-accent {
+  color: var(--accent-color);
+}
+
+.search-movie-input {
+  border: none;
+  border-bottom: 2px solid var(--accent-color);
+  outline: none;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  width: 32vw;
+}
+
+.cast-list {
+  max-height: 10rem;
+  overflow-y: auto;
+}
+
+.navbar a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.navbar {
+  background-color: var(--background-dark);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.navbar-brand {
+  height: 2.5rem;
+}
+
+.small-logo {
+  height: 1.5rem;
+  object-fit: contain;
+  width: 1.5rem;
+}
+
+footer a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.invert-filter {
+  filter: invert(1);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 0.33em;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--background-medium);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--accent-color);
+  border-radius: 100vw;
+}
+
+/* Responsive */
+@media (max-width: 500px) {
+  ::-webkit-scrollbar {
+    width: 0;
   }
 }

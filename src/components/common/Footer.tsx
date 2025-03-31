@@ -5,6 +5,12 @@ interface Reference {
   className?: string;
 }
 
+/**
+ * Footer component for personal references, like portfolio, email, number, etc.
+ *
+ * @component
+ * @returns {JSX.Element} The rendered footer component.
+ */
 const Footer = () => {
   const references: Reference[] = [
     {
@@ -36,7 +42,9 @@ const Footer = () => {
   return (
     <footer className="bg-black text-light py-5">
       <div className="container">
+        {/* Top row */}
         <div className="row mb-5">
+          {/* Personal references */}
           <div className="d-block d-lg-flex justify-content-center flex-wrap gap-5">
             {references.map((reference, key) => (
               <a
@@ -56,7 +64,7 @@ const Footer = () => {
             ))}
           </div>
         </div>
-
+        {/* Bottom row with the rights text */}
         <div className="row pb-5 pb-lg-0">
           <div className="col text-center">
             <p>

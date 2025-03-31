@@ -3,6 +3,12 @@ import MovieListLayout from "../../layouts/MovieListLayout";
 import useMovies from "../../hooks/useMovies";
 import MovieCard from "../../components/MovieCard/MovieCard";
 
+/**
+ * Page component for search movies result.
+ *
+ * @component
+ * @returns {JSX.Element} The rendered search results page component.
+ */
 const SearchMovieResults = () => {
   const location = useLocation();
   const params = new URLSearchParams(location.search);

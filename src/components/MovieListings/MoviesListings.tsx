@@ -50,6 +50,7 @@ const MoviesListings = ({
       <div className={`slider-container px-3 py-lg-0 px-lg-0`}>
         {/* Slider */}
         <Slider {...settings}>
+          {/* If movies is empty show a list of placeholders, else show the movies */}
           {movies.length > 0
             ? movies.map((movie) => (
                 <div key={movie.id} className={`col-lg-2 px-lg-0 py-5`}>

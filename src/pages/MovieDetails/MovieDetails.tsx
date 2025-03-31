@@ -8,6 +8,12 @@ import Overview from "./components/Overview";
 import "./movie-details.css";
 import ProfilesDetails from "./components/ProfilesDetails";
 
+/**
+ * Page component for the details of a single movie.
+ *
+ * @component
+ * @returns {JSX.Element} The rendered movie details page component.
+ */
 const MovieDetails = () => {
   const { id } = useParams();
   const [movie, credits, voteForMovie] = useMovie(id || "");
@@ -19,9 +25,11 @@ const MovieDetails = () => {
     <Layout>
       <div className="row p-0 p-lg-5 d-flex justify-content-center mx-0 bg-medium">
         <div className="bg-dark rounded-3 col-12 col-lg-10 p-3 px-lg-5">
+          {/* Movie details section */}
           <section className="border-bottom mb-3 mb-lg-5 pt-3 pb-5">
             <Details movie={movie} />
           </section>
+          {/* Movie overview section */}
           <section className="row mx-0 border-bottom mb-3 mb-lg-5 pb-5">
             <div className="bg-dark rounded-3 p-3 shadow-sm">
               <Overview
@@ -30,7 +38,9 @@ const MovieDetails = () => {
               />
             </div>
           </section>
+          {/* Movie cast and crew section */}
           <section className="row mx-0 border-bottom pb-5">
+            {/* Cast list */}
             <div className="col-lg-6 p-3">
               <h3>Cast</h3>
               <div className="profiles px-3">
@@ -40,6 +50,7 @@ const MovieDetails = () => {
                 />
               </div>
             </div>
+            {/* Crew list */}
             <div className="col-lg-6 p-3">
               <h3>Crew</h3>
               <div className="profiles px-3">
@@ -49,6 +60,7 @@ const MovieDetails = () => {
           </section>
         </div>
       </div>
+      {/* Recommended/similar movies */}
       <section className="p-3 p-lg-5 bg-black">
         <h3 className="mb-3">Recomendados</h3>
         {recommendeMovies.length > 0 ? (
