@@ -7,7 +7,7 @@ import Overview from "../../components/MovieOverview/Overview";
 import "./movie-details.css";
 import ProfilesDetails from "../../components/ProfilesDetails/ProfilesDetails";
 import CompaniesDetails from "../../components/CompaniesDetails/CompaniesDetails";
-import MovieDetailsList from "../../components/MovieDetailsList/Details";
+import MovieDetailsList from "../../components/MovieDetailsList/MovieDetails";
 
 /**
  * Page component for the details of a single movie.
