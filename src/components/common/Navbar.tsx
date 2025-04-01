@@ -1,13 +1,19 @@
 import { NavLink } from "react-router";
 import LoginBtn from "./LoginBtn";
 import { handleTMDBAuth } from "../../data/tmdbAuth";
-import SearchMovieInput from "./SearchMovieInput";
+import SearchMovieInput from "../SearchMovieInput/SearchMovieInput";
 
+/**
+ * The navbar for the whole app. On large screens a navbar at the top is visible,
+ * on small screens an extra navbar is shown at the bottom of the page
+ *
+ * @component
+ */
 const Navbar = () => {
   return (
     <>
-      <header className="d-none d-lg-block sticky-top">
-        <nav className="navbar bg-black p-lg-3 px-lg-5 shadow-sm">
+      <header className="sticky-top">
+        <nav className="top-navbar navbar bg-black p-3 px-lg-5 shadow-sm">
           <div>
             <NavLink className="d-flex align-items-center" to={`/`}>
               <img src="/logo.png" className="navbar-brand me-2" />
@@ -17,27 +23,31 @@ const Navbar = () => {
           <div className="ms-auto">
             <SearchMovieInput />
           </div>
-          <div className="d-flex align-items-center flex-wrap gap-5 ms-auto">
+          <div className="d-none d-lg-flex align-items-center flex-wrap gap-5 ms-auto">
             <NavLink to="/">Películas</NavLink>
             <NavLink to="/favorites">Favoritos</NavLink>
             <LoginBtn />
           </div>
         </nav>
       </header>
-      <header
+      <div
         className="d-block d-lg-none position-absolute w-100"
         style={{ bottom: -0.25 }}
       >
-        <nav className="navbar bg-black p-2 shadow-sm w-100">
+        <nav className="bottom-navbar navbar bg-black p-2 shadow-sm w-100">
           <div className="d-flex justify-content-center flex-wrap gap-5 w-100">
             <NavLink
-              className={({ isActive }) => (isActive ? "border-bottom" : "")}
+              className={({ isActive }) =>
+                isActive ? "border-accent-bottom" : ""
+              }
               to={`/`}
             >
               <span className="material-icons-outlined fs-1">home</span>
             </NavLink>
             <NavLink
-              className={({ isActive }) => (isActive ? "border-bottom" : "")}
+              className={({ isActive }) =>
+                isActive ? "border-accent-bottom" : ""
+              }
               to={`/favorites`}
             >
               <span className="material-icons-outlined fs-1">favorite</span>
@@ -50,7 +60,7 @@ const Navbar = () => {
             </span>
           </div>
         </nav>
-      </header>
+      </div>
     </>
   );
 };

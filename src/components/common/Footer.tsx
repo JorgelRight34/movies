@@ -28,7 +28,7 @@ const Footer = () => {
     {
       label: "LinkedIn",
       src: "/icons/linkedin-logo.webp",
-      href: "https://linkedin.com/in/jorge-lorenzo-aa79042a7/",
+      href: "https://linkedin.com/in/jorge-lorenzo-mendez/",
       className: "invert-filter",
     },
     {
@@ -43,12 +43,13 @@ const Footer = () => {
     <footer className="bg-black text-light py-5">
       <div className="container">
         {/* Top row */}
-        <div className="row mb-5">
+        <div className="row px-5 mb-5">
           {/* Personal references */}
           <div className="d-block d-lg-flex justify-content-center flex-wrap gap-5">
             {references.map((reference, key) => (
               <a
                 className="d-flex align-items-center mb-5 mb-lg-0"
+                target="_blank"
                 href={reference.href}
                 key={key}
               >
@@ -73,6 +74,8 @@ const Footer = () => {
             </p>
           </div>
         </div>
+        {/* Div that ocuppies the space of the bottom navbar on small devices */}
+        <div className="d-block d-lg-none" style={{ height: "5rem" }}></div>
       </div>
     </footer>
   );

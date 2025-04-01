@@ -1,7 +1,7 @@
 import { useMemo } from "react";
-import RatingStars from "../../../components/RatingStars/RatingStars";
-import { Movie } from "../../../models/movie";
-import { VIDEO_PROVIDERS } from "../../../lib/constants";
+import RatingStars from "../RatingStars/RatingStars";
+import { Movie } from "../../models/movie";
+import { VIDEO_PROVIDERS } from "../../lib/constants";
 
 interface OverviewProps {
   movie: Movie;
@@ -24,12 +24,13 @@ const Overview = ({ movie, voteForMovie }: OverviewProps) => {
       ),
     [movie]
   );
+
   return (
     <>
       <section className="mb-5">
         {/* Header */}
         <div className="mb-3">
-          <h2>Panorama</h2>
+          <h2 className="border-accent-left">Panorama</h2>
           <h4>{movie.tagline}</h4>
         </div>
         {/* Overview */}

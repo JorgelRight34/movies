@@ -1,12 +1,13 @@
-import BuyTicketsBtn from "../../../components/common/BuyTicketsBtn";
-import RatingStars from "../../../components/RatingStars/RatingStars";
-import useAddMovieToFavorites from "../../../hooks/useAddMovieToFavorites";
-import { getFullMovieImagePath } from "../../../lib/utils";
-import { Movie } from "../../../models/movie";
-import "../movie-details.css";
+import BuyTicketsBtn from "../common/BuyTicketsBtn";
+import RatingStars from "../RatingStars/RatingStars";
+import useAddMovieToFavorites from "../../hooks/useAddMovieToFavorites";
+import { getFullMovieImagePath } from "../../lib/utils";
+import { Movie } from "../../models/movie";
+import "./movie-details-list.css";
 
 interface DetailsProps {
   movie: Movie;
+  voteForMovie?: (value: number) => void;
 }
 
 /**
@@ -15,37 +16,35 @@ interface DetailsProps {
  * @component
  * @param {Object} props.props - The properties passed to the component.
  * @param {Movie} props.movie - The movie associated with the details.
+ * @param {(value: number) => void} [props.voteForMovie] - Callback function to handle the voting process for the movie.
  * @returns {JSX.Element} The rendered movie details component.
  */
-const Details = ({ movie }: DetailsProps) => {
+const MovieDetailsList = ({ movie, voteForMovie }: DetailsProps) => {
   const addMovieToFavorites = useAddMovieToFavorites();
 
   return (
     <div>
-      {/* Header */}
-      <h1 className="mb-3">{movie.title}</h1>
       <div className="row mx-0">
+        <h1 className="d-block d-lg-none mb-3">{movie.title}</h1>
         {/* Poster image on the first column */}
-        <div className="col-lg-6 p-lg-3 d-flex justify-content-center">
+        <div className="col-lg-6 p-lg-3 d-flex align-items-center justify-content-center">
           <img
-            className="img-fluid movie-details-poster shadow-sm mb-3 mb-lg-0"
+            className="img-fluid movie-details-poster shadow-lg mb-3 mb-lg-0"
             src={getFullMovieImagePath(movie.poster_path, "original")}
             alt={movie.title}
           />
         </div>
         {/* Second column */}
         <div className="col-lg-6 p-lg-3">
+          {/* Header */}
+          <h1 className="d-none d-lg-block mb-3">{movie.title}</h1>
           <div className="mb-5">
             {/* Companies and release date */}
             <h4>{movie.production_companies?.[0]?.name}</h4>
             <h6>
               <time>({movie.release_date})</time>
             </h6>
-            <h6>
-              {movie.production_companies
-                ?.map((company) => company.name)
-                .join(", ")}
-            </h6>
+            <h6>{movie.genres?.map((genre) => genre.name).join(" / ")}</h6>
             {/* Movie identification and popularity */}
             <div className="d-flex flex-wrap gap-3 mb-3">
               {/* Movie id */}
@@ -64,6 +63,7 @@ const Details = ({ movie }: DetailsProps) => {
               readOnly={false}
               renderLabelText={true}
               rating={movie.vote_average}
+              callback={voteForMovie}
             />
           </div>
 
@@ -83,7 +83,7 @@ const Details = ({ movie }: DetailsProps) => {
               <dt>Runtime</dt>
               <dd className="ms-auto">{movie.runtime} mins</dd>
             </dl>
-            {/* Votes */}
+            {/* Runtime */}
             <dl className="d-flex border-bottom p-2">
               <dt>Votes</dt>
               <dd className="ms-auto">{movie.vote_average}/10</dd>
@@ -99,10 +99,10 @@ const Details = ({ movie }: DetailsProps) => {
           <BuyTicketsBtn className="w-100 mb-3" movie={movie} />
           {/* Button to add movie to favorites */}
           <button
-            className="btn bg-black border text-white w-100"
+            className="btn bg-black text-white w-100"
             onClick={() => addMovieToFavorites(movie.id)}
           >
-            Add to Favorites
+            Añadir a Favoritos
           </button>
         </div>
       </div>
@@ -110,4 +110,4 @@ const Details = ({ movie }: DetailsProps) => {
   );
 };
 
-export default Details;
+export default MovieDetailsList;

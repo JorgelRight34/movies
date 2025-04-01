@@ -1,6 +1,7 @@
-import ProfileCard from "../../../components/ProfileCard/ProfileCard";
-import { Actor } from "../../../models/actor";
-import { Worker } from "../../../models/worker";
+import { Actor } from "../../models/actor";
+import { Worker } from "../../models/worker";
+import CustomSlider from "../common/CustomSlider";
+import ProfileCard from "../ProfileCard/ProfileCard";
 
 interface ProfilesDetails {
   profiles: Actor[] | Worker[];
@@ -18,21 +19,23 @@ interface ProfilesDetails {
  */
 const ProfilesDetails = ({ profiles, subheadingKey }: ProfilesDetails) => {
   return (
-    <ul className="list-unstyled">
-      {profiles.map((profile, key) => (
-        <li>
+    <CustomSlider>
+      {profiles.map((profile) => (
+        <div key={profile.credit_id} className="col-lg-4">
           <ProfileCard
-            key={key}
-            profile={profile}
+            name={profile.name}
+            photo={
+              profile.profile_path ? `original/${profile.profile_path}` : ""
+            }
             subheading={
               subheadingKey in profile
                 ? profile[subheadingKey as keyof typeof profile].toString()
                 : ""
             }
           />
-        </li>
+        </div>
       ))}
-    </ul>
+    </CustomSlider>
   );
 };
 

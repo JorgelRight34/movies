@@ -12,18 +12,21 @@ import { ACCOUNT_ID } from "../lib/constants";
  * addMovieToFavorites();
  */
 const useAddMovieToFavorites = () => {
-    const addMovieToFavorites = async (id: number) => {
-        const response = await api.post(`account/${ACCOUNT_ID || null}/favorite`, {
-            media_type: "movie",
-            media_id: id,
-            favorite: true,
-        });
+  const addMovieToFavorites = async (id: number, favorite = true) => {
+    const response = await api.post(`account/${ACCOUNT_ID || null}/favorite`, {
+      media_type: "movie",
+      media_id: id,
+      favorite: favorite,
+    });
 
-        if (response.data.success)
-            toast.success(`Movie added to favorites!`);
-    };
+    if (response.data.success) {
+      toast.success(
+        favorite ? `Movie ADDED to favorites!` : `Movie DELETED from favorites!`
+      );
+    }
+  };
 
-    return addMovieToFavorites;
+  return addMovieToFavorites;
 };
 
 export default useAddMovieToFavorites;

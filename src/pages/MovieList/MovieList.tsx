@@ -13,7 +13,7 @@ import { useMemo } from "react";
  */
 const MovieList = () => {
   const { filter } = useParams();
-  const [movies, , goToNextPage, goToPrevPage] = useMovies(
+  const { movies, page, totalPages, goToNextPage, goToPrevPage } = useMovies(
     (filter as MovieFilter) || "now_playing"
   );
 
@@ -35,6 +35,8 @@ const MovieList = () => {
   return (
     <MovieListLayout
       title={title}
+      page={page}
+      totalPages={totalPages}
       goToNextPage={goToNextPage}
       goToPrevPage={goToPrevPage}
     >

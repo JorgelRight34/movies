@@ -1,5 +1,10 @@
+.lazy-load-image-background {
+  width: 100%;
+  height: 15rem;
+}
+
 .profile-pic {
-    height: 2.5rem;
-    width: 2.5rem;
-    object-fit: cover;
+  object-fit: cover;
+  height: 15rem;
+  width: 100%;
 }

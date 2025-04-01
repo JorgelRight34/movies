@@ -1,54 +1,37 @@
-# React + TypeScript + Vite
+# Lorenzo Movies Inc
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Currently, two official plugins are available:
+## Sprint 1
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### FF-1
 
-## Expanding the ESLint configuration
+Los clientes pueden ver una lista de peliculas que se estan reproduciendo ahora.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- La lista incluye el titulo de la pelicula, la fecha de estreno, la media de votos y el cartel de la pelicula
+- La lista muestra solo la primera pagina de resultados
+- La lista esta ordenada alfabeticamente
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+### FF-2
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Los clientes pueden ver mas detalles de una pelicula
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+- La pagina incluye el titulo de la pelicula, el ano de estreno, una descripcion general de la pelicula, el genero, la calificacion de la pelicula
+- La pagina de detalles muestra una lista de actores y sus personajes
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+### FF-3
+
+Como cliente puede votar por una pelicula
+
+- En la pagina hay un conjunto de estrellas que el usuario puede utilizar para calificar la pelicula
+- La calificacion se contabiliza denuevo en la API
+
+## Sprint 2: Opcional
+
+## FF-4
+
+Como cliente puede ver una lista de peliculas similares/recomendadas
+
+## FF-5
+
+Como cliente puede anadir una pelicula a sus favoritos

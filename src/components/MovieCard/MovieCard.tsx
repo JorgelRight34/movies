@@ -1,3 +1,4 @@
+import { useState } from "react";
 import useAddMovieToFavorites from "../../hooks/useAddMovieToFavorites";
 import { getFullMovieImagePath } from "../../lib/utils";
 import { Movie } from "../../models/movie";
@@ -22,6 +23,17 @@ interface MovieProps {
  */
 const MovieCard = ({ movie, showAddToFavoriteBtn = true }: MovieProps) => {
   const addMovieToFavorites = useAddMovieToFavorites();
+  const [isFavoriteIconFull, setIsFavoriteIconFull] = useState(false);
+  const [isMovieFavorite, setIsMovieFavorite] = useState(false);
+
+  const handleAddMovieToFavorites = () => {
+    // When user adds movie to favorite the favorite heart icon
+    // will transform into a full heart indicating it's a favorite movie
+    addMovieToFavorites(movie.id, !isMovieFavorite);
+    console.log("Favorite icon full", !isMovieFavorite);
+    setIsFavoriteIconFull(!isMovieFavorite);
+    setIsMovieFavorite((prev) => !prev);
+  };
 
   return (
     <article className="movie-card border shadow-sm rounded-3">
@@ -29,22 +41,23 @@ const MovieCard = ({ movie, showAddToFavoriteBtn = true }: MovieProps) => {
       {showAddToFavoriteBtn && (
         <div
           className="add-to-favorites-btn rounded-circle p-1"
-          onClick={() => addMovieToFavorites(movie.id)}
+          onMouseEnter={() => setIsFavoriteIconFull(true)} // When on hover the heart icon will be full
+          onMouseLeave={() => setIsFavoriteIconFull(false)} // When on leave the heart icon will be back to normal
+          onClick={handleAddMovieToFavorites}
         >
-          <span className="material-icons-outlined">favorite_border</span>
+          <span className={`material-icons-outlined text-accent`}>
+            {/* If movie is favorite show a full heart icon, else show an empty heart */}
+            {isFavoriteIconFull || isMovieFavorite
+              ? "favorite"
+              : "favorite_border"}
+          </span>
         </div>
       )}
       {/* Poster */}
       <LazyLoadImage
         className="img-fluid d-block d-lg-block"
-        effect="blur"
         src={getFullMovieImagePath(movie.poster_path)}
         alt={movie.title}
-        style={{
-          borderRadius: "8px",
-          display: "block",
-          backgroundColor: "#cccccc", // Gray background placeholder
-        }}
       />
       {/* Movie description */}
       <div className="movie-card-description p-3">
@@ -56,7 +69,7 @@ const MovieCard = ({ movie, showAddToFavoriteBtn = true }: MovieProps) => {
             <time>{movie.release_date}</time>
           </span>
           <span className="ms-0 ms-lg-auto">
-            Votes: {movie.vote_average}/10
+            Votes: {movie.vote_average?.toFixed(1)}/10
           </span>
         </div>
         <BuyTicketsBtn label="Más Detalles" className="w-100" movie={movie} />

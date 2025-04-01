@@ -14,6 +14,19 @@
 }
 
 /* Utility */
+.border-accent {
+  border-color: var(--accent-color) !important;
+}
+
+.border-accent-left {
+  border-left: 0.25rem solid var(--accent-color);
+  padding-left: 0.5rem;
+}
+
+.border-accent-bottom {
+  border-bottom: 0.25rem solid var(--accent-color);
+}
+
 .btn-accent {
   background: var(--accent-color) !important;
   color: #fff;
@@ -33,14 +46,6 @@
 
 .text-accent {
   color: var(--accent-color);
-}
-
-.search-movie-input {
-  border: none;
-  border-bottom: 2px solid var(--accent-color);
-  outline: none;
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
-  width: 32vw;
 }
 
 .cast-list {
@@ -95,6 +100,19 @@ footer a {
 
 /* Responsive */
 @media (max-width: 500px) {
+  .navbar-brand {
+    height: 2rem;
+  }
+
+  .top-navbar {
+    background-color: rgb(0, 0, 0, 0.8) !important;
+    height: 3.5rem;
+  }
+
+  .bottom-navbar {
+    height: 3.5rem;
+  }
+
   ::-webkit-scrollbar {
     width: 0;
   }
