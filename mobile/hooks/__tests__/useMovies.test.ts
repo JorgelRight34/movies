@@ -1,6 +1,6 @@
-import { act, renderHook, waitFor } from "@testing-library/react";
-import useMovies from "../../hooks/useMovies";
-import { expectedMovieStructure } from "./constants";
+import { act, renderHook, waitFor } from "@testing-library/react-native";
+import useMovies from "../useMovies";
+import { expectedMovieStructure } from "./test-utils/constants";
 
 describe("useMovies", () => {
   it("should start with page as 1", () => {

@@ -1,7 +1,6 @@
-import { expect } from "vitest";
-import { Movie } from "../../models/movie";
-import { Actor } from "../../models/actor";
-import { Worker } from "../../models/worker";
+import { Movie } from "../../../models/movie";
+import { Actor } from "../../../models/actor";
+import { Worker } from "../../../models/worker";
 
 export const expectedMovieStructure = Object.fromEntries(
     (Object.keys({}) as (keyof Movie)[]).map((key) => [key, expect.anything()])

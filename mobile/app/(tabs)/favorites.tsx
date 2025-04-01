@@ -1,15 +1,22 @@
-import { Text, View } from "@/components/Themed";
+import MovieCard from "@/components/MovieCard";
+import TitleHeading from "@/components/TitleHeading";
+import { Box } from "@/components/ui/box";
 import useFavorites from "@/hooks/useFavorites";
+import { FlatList, ScrollView } from "react-native";
 
 const Favorites = () => {
-  const [favorites] = useFavorites();
+  const { favoriteMovies } = useFavorites();
 
   return (
-    <View>
-      {favorites.map((movie) => (
-        <Text key={movie.id}>{movie.title}</Text>
-      ))}
-    </View>
+    <ScrollView>
+      <Box className="p-3">
+        <TitleHeading>Favoritos</TitleHeading>
+      </Box>
+      <FlatList
+        data={favoriteMovies}
+        renderItem={({ item }) => <MovieCard movie={item} />}
+      />
+    </ScrollView>
   );
 };
 

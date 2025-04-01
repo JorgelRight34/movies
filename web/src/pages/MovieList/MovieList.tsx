@@ -20,15 +20,15 @@ const MovieList = () => {
   const title = useMemo(() => {
     switch (filter) {
       case "now_playing":
-        return "Now Playing";
+        return "En Cartelera";
       case "top_rated":
-        return "Top Rated";
+        return "Más Valorados";
       case "popular":
         return "Popular";
       case "upcoming":
-        return "Upcoming";
+        return "Próximamente";
       default:
-        return "Now Playing";
+        return "En Cartelera";
     }
   }, [filter]);
 

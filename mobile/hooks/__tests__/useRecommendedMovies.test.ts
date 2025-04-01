@@ -1,6 +1,6 @@
-import { renderHook, waitFor } from "@testing-library/react";
+import { renderHook, waitFor } from "@testing-library/react-native";
 import useRecommendedMovies from "../../hooks/useRecommendedMovies";
-import { expectedMovieStructure, testMovieId } from "./constants";
+import { expectedMovieStructure, testMovieId } from "./test-utils/constants";
 
 describe("useRecommendedMovies", () => {
   it("should fetch and return recommended movies on the right structure", async () => {

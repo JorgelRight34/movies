@@ -1,6 +1,7 @@
 # Node modules
 web/node_modules/
 mobile/node_modules
+mobile/data/api
 
 # Build output
 web/dist/

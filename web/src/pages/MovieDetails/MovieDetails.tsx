@@ -17,7 +17,7 @@ import MovieDetailsList from "../../components/MovieDetailsList/MovieDetailsList
  */
 const MovieDetails = () => {
   const { id } = useParams();
-  const [movie, credits, voteForMovie] = useMovie(id || "");
+  const { movie, credits, voteForMovie } = useMovie(id || "");
   const recommendeMovies = useRecommendedMovies(id || "");
 
   // The value is multiplied by two because it's a rating out of 5 stars

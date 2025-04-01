@@ -1,11 +1,11 @@
-import { renderHook, waitFor } from "@testing-library/react";
-import useAddMovieToFavorites from "../../hooks/useAddMovieToFavorites";
-import { describe, it } from "vitest";
+import { renderHook } from "@testing-library/react-hooks";
+import { waitFor } from "@testing-library/react-native";
+import useAddMovieToFavorites from "../useAddMovieToFavorites";
 import { act } from "react";
-import { testMovieId } from "./constants";
+import { testMovieId } from "./test-utils/constants";
 import api from "../../data/api";
 
-vi.spyOn(api, "post");
+jest.spyOn(api, "post");
 
 describe("useAddMovieToFavorites", () => {
   it("should call the right endpoint when adding to favorites", async () => {

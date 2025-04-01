@@ -1,0 +1,102 @@
+import { Movie } from "@/models/movie";
+import { Box } from "@/components/ui/box";
+import { Heading } from "@/components/ui/heading";
+import { HStack } from "@/components/ui/hstack";
+import { Image } from "@/components/ui/image";
+import { Text } from "@/components/ui/text";
+import { VStack } from "@/components/ui/vstack";
+import { Rating } from "react-native-ratings";
+import { getFullMovieImagePath } from "@/lib/utils";
+import { Button, ButtonText } from "../ui/button";
+import useAddMovieToFavorites from "@/hooks/useAddMovieToFavorites";
+import theme from "@/styles/theme";
+
+interface MovieDetailsProps {
+  movie: Movie;
+  voteForMovie: (rating: number) => void;
+}
+
+const MovieDetails = ({ movie, voteForMovie }: MovieDetailsProps) => {
+  const addToMovieToFavorites = useAddMovieToFavorites();
+
+  return (
+    <>
+      <Box className="p-3">
+        {/* Header, image and quick info */}
+        <Image
+          source={{
+            uri: getFullMovieImagePath(movie.poster_path),
+          }}
+          className="rounded-t-lg h-[600px] w-full aspect-auto object-contain"
+          alt={movie.title}
+        />
+        <Heading className="text-white">{movie.title}</Heading>
+        <HStack className="mb-3">
+          <Text className="text-sm font-normal text-white">
+            {movie.release_date}
+          </Text>
+          <Text className="text-sm font-normal text-white ms-auto">
+            {movie.vote_average.toFixed(1)}/10
+          </Text>
+        </HStack>
+      </Box>
+      <VStack className="p-3">
+        {/* Movie language */}
+        <Box className="p-3 mb-3 border-b flex-row items-baseline">
+          <Text className="text-sm text-white font-bold">Language</Text>
+          <Text className="text-sm text-white font-normal ms-auto">
+            {movie.original_language.toUpperCase()}
+          </Text>
+        </Box>
+        {/* Runtime */}
+        <Box className="p-3 mb-3 border-b flex-row items-baseline">
+          <Text className="text-sm text-white font-bold">Runtime</Text>
+          <Text className="text-sm text-white font-normal ms-auto">
+            {movie.runtime} mins
+          </Text>
+        </Box>
+        {/* Runtime */}
+        <Box className="p-3 mb-3 border-b flex-row items-baseline">
+          <Text className="text-sm text-white font-bold">Votes</Text>
+          <Text className="text-sm text-white font-normal ms-auto">
+            ★ {movie.vote_average.toFixed(1)}/10
+          </Text>
+        </Box>
+        {/* Status */}
+        <Box className="p-3 mb-3 border-b flex-row items-baseline">
+          <Text className="text-sm text-white font-bold">Status</Text>
+          <Text className="text-sm text-white font-normal ms-auto">
+            {movie.status}
+          </Text>
+        </Box>
+      </VStack>
+      {/* Buttons */}
+      <VStack className="p-3">
+        <Button
+          className="mb-3"
+          style={{ backgroundColor: theme.colors.primary }}
+        >
+          <ButtonText className="text-white">Comprar Tickets</ButtonText>
+        </Button>
+        <Button onPress={() => addToMovieToFavorites(movie.id)}>
+          <ButtonText className="text-white">Añadir a Favoritos</ButtonText>
+        </Button>
+      </VStack>
+      {/* Rating Section */}
+      <Box className="p-3">
+        {/* Added margin-top */}
+        <Text className="text-lg font-bold text-white mb-4">
+          Rate This Movie
+        </Text>
+        <Rating
+          tintColor="black"
+          imageSize={30}
+          startingValue={movie.vote_average / 2}
+          onFinishRating={(rating: number) => voteForMovie(rating * 2)}
+        />
+      </Box>
+    </>
+  );
+};
+
+export default MovieDetails;

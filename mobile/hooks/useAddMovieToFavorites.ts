@@ -1,4 +1,4 @@
-import { toast } from "react-toastify";
+import { Alert } from "react-native";
 import api from "../data/api";
 import { ACCOUNT_ID } from "../lib/constants";
 
@@ -20,9 +20,7 @@ const useAddMovieToFavorites = () => {
     });
 
     if (response.data.success) {
-      toast.success(
-        favorite ? `Movie ADDED to favorites!` : `Movie DELETED from favorites!`
-      );
+      Alert.alert("Favorites", favorite ? `Movie ADDED to favorites!` : `Movie DELETED from favorites!`)
     }
   };
 

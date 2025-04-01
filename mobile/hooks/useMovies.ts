@@ -44,9 +44,8 @@ const useMovies = (
 
   const fetchMovies = async () => {
     // Get path, if search is specified create the specific endpoint search/movie
-    const path = `${endpoint === "search" ? endpoint : "movie"}/${
-      endpoint === "search" ? "movie" : endpoint
-    }`;
+    const path = `${endpoint === "search" ? endpoint : "movie"}/${endpoint === "search" ? "movie" : endpoint
+      }`;
 
     // Fire request and get response
     const response = await api.get(

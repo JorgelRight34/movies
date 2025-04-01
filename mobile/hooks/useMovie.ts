@@ -2,8 +2,14 @@ import { useEffect, useState } from "react";
 import { Movie } from "../models/movie";
 import api from "../data/api";
 import { Actor } from "../models/actor";
-import { toast } from "react-toastify";
 import { Worker } from "../models/worker";
+import { Alert } from "react-native";
+
+interface UseMovieReturn {
+  movie: Movie | null,
+  credits: { cast: Actor[], crew: Worker[] },
+  voteForMovie: (rating: number) => Promise<void>
+}
 
 /**
  * Hook to get all the info about a movie.
@@ -17,9 +23,9 @@ import { Worker } from "../models/worker";
  */
 const useMovie = (
   id: string
-): [Movie | null, { cast: Actor[], crew: Worker[] }, (rating: number) => Promise<void>] => {
-  const [movies, setMovie] = useState<Movie | null>(null);
-  const [movieCredits, setMovieCredits] = useState<{ cast: Actor[], crew: Worker[] }>({
+): UseMovieReturn => {
+  const [movie, setMovie] = useState<Movie | null>(null);
+  const [credits, setCredits] = useState<{ cast: Actor[], crew: Worker[] }>({
     cast: [],
     crew: []
   });
@@ -36,14 +42,14 @@ const useMovie = (
     });
 
     if (response.data.success) {
-      toast.success(`You left a rating of ${rating}/10!`)
+      Alert.alert("Favorite", "You have liked it!")
       fetchMovie(); // Update movie
-    };
+    }
   };
 
   const fetchMovieCredits = async () => {
     const response = await api.get(`movie/${id}/credits`);
-    setMovieCredits(response.data);
+    setCredits(response.data);
   };
 
   useEffect(() => {
@@ -51,7 +57,7 @@ const useMovie = (
     fetchMovieCredits();
   }, [id]);
 
-  return [movies, movieCredits, voteForMovie];
+  return { movie, credits, voteForMovie };
 };
 
 export default useMovie;

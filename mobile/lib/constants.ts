@@ -1,9 +1,7 @@
 import { Movie } from "../models/movie";
-import AsyncStorage from '@react-native-async-storage/async-storage';
-import Config from "react-native-config";
 
 export const LANGUAGE = "es-DO";
-export const ACCOUNT_ID = AsyncStorage.getItem("sessionId");
+export const ACCOUNT_ID = null; // for now its null
 export const TMDB_IMAGES_SRC = "https://image.tmdb.org/t/p/";
 
 // Video site providers
