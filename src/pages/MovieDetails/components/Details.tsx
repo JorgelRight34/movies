@@ -83,6 +83,11 @@ const Details = ({ movie }: DetailsProps) => {
               <dt>Runtime</dt>
               <dd className="ms-auto">{movie.runtime} mins</dd>
             </dl>
+            {/* Votes */}
+            <dl className="d-flex border-bottom p-2">
+              <dt>Votes</dt>
+              <dd className="ms-auto">{movie.vote_average}/10</dd>
+            </dl>
             {/* Status */}
             <dl className="d-flex border-bottom p-2">
               <dt>Status</dt>
