@@ -1,7 +1,7 @@
 import { useMemo } from "react";
-import RatingStars from "../../../components/RatingStars/RatingStars";
-import { Movie } from "../../../models/movie";
-import { VIDEO_PROVIDERS } from "../../../lib/constants";
+import RatingStars from "../RatingStars/RatingStars";
+import { Movie } from "../../models/movie";
+import { VIDEO_PROVIDERS } from "../../lib/constants";
 
 interface OverviewProps {
   movie: Movie;

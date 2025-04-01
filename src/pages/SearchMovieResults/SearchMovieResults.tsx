@@ -14,10 +14,8 @@ const SearchMovieResults = () => {
   const location = useLocation();
   const params = new URLSearchParams(location.search);
   const query = params.get("q") || "";
-  const [movies, , handleNextPage, handlePrevPage, fetchMovies] = useMovies(
-    "search",
-    `query=${query}`
-  );
+  const { movies, page, totalPages, goToNextPage, goToPrevPage, fetchMovies } =
+    useMovies("search", `query=${query}`);
 
   useEffect(() => {
     // Re render
@@ -26,9 +24,11 @@ const SearchMovieResults = () => {
 
   return (
     <MovieListLayout
+      page={page}
+      totalPages={totalPages}
       title="Search Results"
-      goToNextPage={handleNextPage}
-      goToPrevPage={handlePrevPage}
+      goToNextPage={goToNextPage}
+      goToPrevPage={goToPrevPage}
     >
       {movies.map((movie) => (
         <div

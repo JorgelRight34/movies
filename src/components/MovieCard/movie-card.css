@@ -13,10 +13,6 @@
   content: "favorite";
 }
 
-.add-to-favorites-btn > span {
-  color: #000;
-}
-
 .lazy-load-image-background {
   width: 100%;
 }

@@ -3,6 +3,8 @@ import Layout from "./Layout";
 
 interface MovieListLayoutProps {
   title: string;
+  page: number;
+  totalPages: number;
   children: ReactNode;
   goToPrevPage: () => void;
   goToNextPage: () => void;
@@ -10,6 +12,8 @@ interface MovieListLayoutProps {
 
 const MovieListLayout = ({
   title,
+  page,
+  totalPages,
   goToNextPage,
   goToPrevPage,
   children,
@@ -40,13 +44,18 @@ const MovieListLayout = ({
             <button
               className="btn btn-accent px-3 me-3"
               onClick={handlePrevPage}
+              disabled={page - 1 <= 0}
             >
               <span className="d-flex align-items-center">
                 <span className="material-icons-outlined me-2">arrow_back</span>
                 Atrás
               </span>
             </button>
-            <button className="btn btn-accent px-3" onClick={handleNextPage}>
+            <button
+              className="btn btn-accent px-3"
+              onClick={handleNextPage}
+              disabled={page + 1 > totalPages}
+            >
               <span className="d-flex align-items-center">
                 Siguiente
                 <span className="material-icons-outlined ms-2">

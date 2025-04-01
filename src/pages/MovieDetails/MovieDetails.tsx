@@ -3,10 +3,11 @@ import useMovie from "../../hooks/useMovie";
 import useRecommendedMovies from "../../hooks/useRecommendedMovies";
 import Layout from "../../layouts/Layout";
 import MoviesListings from "../../components/MovieListings/MoviesListings";
-import Details from "./components/Details";
-import Overview from "./components/Overview";
+import Overview from "../../components/MovieOverview/Overview";
 import "./movie-details.css";
-import ProfilesDetails from "./components/ProfilesDetails";
+import ProfilesDetails from "../../components/ProfilesDetails/ProfilesDetails";
+import CompaniesDetails from "../../components/CompaniesDetails/CompaniesDetails";
+import MovieDetailsList from "../../components/MovieDetailsList/Details";
 
 /**
  * Page component for the details of a single movie.
@@ -32,7 +33,7 @@ const MovieDetails = () => {
         <div className="bg-dark rounded-3 col-12 col-lg-10 p-3 px-lg-5">
           {/* Movie details section */}
           <section className="border-bottom mb-3 mb-lg-5 pt-3 pb-5">
-            <Details movie={movie} voteForMovie={handleVoteForMovie} />
+            <MovieDetailsList movie={movie} voteForMovie={handleVoteForMovie} />
           </section>
           {/* Movie overview section */}
           <section className="row mx-0 border-bottom mb-3 mb-lg-5 pb-5">
@@ -40,7 +41,7 @@ const MovieDetails = () => {
               <Overview voteForMovie={handleVoteForMovie} movie={movie} />
             </div>
           </section>
-          {/* Movie cast and crew section */}
+          {/* Movie cast, crew and production companies section */}
           <section className="border-bottom pb-5 mb-3 mb-lg-5">
             {/* Cast list */}
             <div className="p-3">
@@ -63,12 +64,23 @@ const MovieDetails = () => {
                 <ProfilesDetails profiles={credits.crew} subheadingKey="job" />
               </div>
             </div>
+            {/* Companies list */}
+            {movie.production_companies && (
+              <div className="p-3">
+                <h3 className="border-accent-left mb-3">
+                  Companies ({movie.production_companies?.length})
+                </h3>
+                <div className="px-3">
+                  <CompaniesDetails companies={movie.production_companies} />
+                </div>
+              </div>
+            )}
           </section>
         </div>
       </div>
       {/* Recommended/similar movies */}
       <section className="p-3 p-lg-5 bg-black">
-        <h3 className="mb-3">Recomendados</h3>
+        <h3 className="border-accent-left mb-3">Recomendados</h3>
         {recommendeMovies.length > 0 ? (
           <MoviesListings movies={recommendeMovies} />
         ) : (

@@ -15,7 +15,7 @@ import { ACCOUNT_ID } from "../lib/constants";
  * @example
  * const [favoriteMovies, totalFavorites, refreshFavorites, resetFavorites] = useFavorites();
  */
-const useFavorites = (): [Movie[], number, () => void, () => void] => {
+const useFavorites = (): [Movie[], number, number, () => void, () => void] => {
   const [favoriteMovies, setFavoriteMovies] = useState<Movie[]>([]);
   const [page, setPage] = useState(1);
   const [totalPages, setTotalPages] = useState(0);
@@ -29,18 +29,18 @@ const useFavorites = (): [Movie[], number, () => void, () => void] => {
   };
 
   const handleNextPage = () => {
-    if (page + 1 <= totalPages) setPage(prev => prev + 1);
-  }
+    if (page + 1 <= totalPages) setPage((prev) => prev + 1);
+  };
 
   const handlePreviusPage = () => {
-    if (page - 1 != 0) setPage(prev => prev - 1);
-  }
+    if (page - 1 != 0) setPage((prev) => prev - 1);
+  };
 
   useEffect(() => {
     getFavoriteMovies();
   }, [page]);
 
-  return [favoriteMovies, page, handleNextPage, handlePreviusPage];
+  return [favoriteMovies, page, totalPages, handleNextPage, handlePreviusPage];
 };
 
 export default useFavorites;

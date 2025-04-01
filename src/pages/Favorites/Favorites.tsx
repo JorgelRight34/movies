@@ -9,11 +9,14 @@ import MovieListLayout from "../../layouts/MovieListLayout";
  * @returns {JSX.Element} The rendered favorite movies page component.
  */
 const Favorites = () => {
-  const [favoriteMovies, , goToNextPage, goToPrevPage] = useFavorites();
+  const [favoriteMovies, page, totalPages, goToNextPage, goToPrevPage] =
+    useFavorites();
 
   return (
     <MovieListLayout
       title="Películas Favoritas"
+      page={page}
+      totalPages={totalPages}
       goToNextPage={goToNextPage}
       goToPrevPage={goToPrevPage}
     >

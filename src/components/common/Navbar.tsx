@@ -3,6 +3,12 @@ import LoginBtn from "./LoginBtn";
 import { handleTMDBAuth } from "../../data/tmdbAuth";
 import SearchMovieInput from "../SearchMovieInput/SearchMovieInput";
 
+/**
+ * The navbar for the whole app. On large screens a navbar at the top is visible,
+ * on small screens an extra navbar is shown at the bottom of the page
+ *
+ * @component
+ */
 const Navbar = () => {
   return (
     <>

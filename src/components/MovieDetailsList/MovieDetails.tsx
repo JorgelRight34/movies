@@ -1,9 +1,9 @@
-import BuyTicketsBtn from "../../../components/common/BuyTicketsBtn";
-import RatingStars from "../../../components/RatingStars/RatingStars";
-import useAddMovieToFavorites from "../../../hooks/useAddMovieToFavorites";
-import { getFullMovieImagePath } from "../../../lib/utils";
-import { Movie } from "../../../models/movie";
-import "../movie-details.css";
+import BuyTicketsBtn from "../common/BuyTicketsBtn";
+import RatingStars from "../RatingStars/RatingStars";
+import useAddMovieToFavorites from "../../hooks/useAddMovieToFavorites";
+import { getFullMovieImagePath } from "../../lib/utils";
+import { Movie } from "../../models/movie";
+import "./movie-details-list.css";
 
 interface DetailsProps {
   movie: Movie;
@@ -19,7 +19,7 @@ interface DetailsProps {
  * @param {(value: number) => void} [props.voteForMovie] - Callback function to handle the voting process for the movie.
  * @returns {JSX.Element} The rendered movie details component.
  */
-const Details = ({ movie, voteForMovie }: DetailsProps) => {
+const MovieDetailsList = ({ movie, voteForMovie }: DetailsProps) => {
   const addMovieToFavorites = useAddMovieToFavorites();
 
   return (
@@ -44,11 +44,7 @@ const Details = ({ movie, voteForMovie }: DetailsProps) => {
             <h6>
               <time>({movie.release_date})</time>
             </h6>
-            <h6>
-              {movie.production_companies
-                ?.map((company) => company.name)
-                .join(", ")}
-            </h6>
+            <h6>{movie.genres?.map((genre) => genre.name).join(" / ")}</h6>
             {/* Movie identification and popularity */}
             <div className="d-flex flex-wrap gap-3 mb-3">
               {/* Movie id */}
@@ -106,7 +102,7 @@ const Details = ({ movie, voteForMovie }: DetailsProps) => {
             className="btn bg-black text-white w-100"
             onClick={() => addMovieToFavorites(movie.id)}
           >
-            Add to Favorites
+            Añadir a Favoritos
           </button>
         </div>
       </div>
@@ -114,4 +110,4 @@ const Details = ({ movie, voteForMovie }: DetailsProps) => {
   );
 };
 
-export default Details;
+export default MovieDetailsList;

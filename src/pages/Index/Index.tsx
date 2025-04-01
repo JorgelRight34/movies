@@ -8,10 +8,10 @@ import Layout from "../../layouts/Layout";
 import { NavLink } from "react-router";
 
 const Index = () => {
-  const [moviesPlayingNow] = useMovies("now_playing");
-  const [moviesPopular] = useMovies("popular");
-  const [moviesTopRated] = useMovies("top_rated");
-  const [moviesUpComing] = useMovies("upcoming");
+  const { movies: moviesPlayingNow } = useMovies("now_playing");
+  const { movies: moviesPopular } = useMovies("popular");
+  const { movies: moviesTopRated } = useMovies("top_rated");
+  const { movies: moviesUpComing } = useMovies("upcoming");
 
   // Most popular movie that is playing right now
   const mostPopularMovieNow = useMemo(() => {
@@ -77,7 +77,6 @@ const Index = () => {
           >
             <h3 className="border-accent-left mb-3">Popular</h3>
           </NavLink>
-
           <MoviesListings movies={moviesPopular} />
         </section>
         {/* Upcoming */}

@@ -12,6 +12,25 @@ interface CustomSliderProps {
   children: ReactNode;
 }
 
+/**
+ * A customizable carousel/slider component built on React Slick.
+ *
+ * @component
+ * @param {Object} props - Component props.
+ * @param {boolean} [props.dots=false] - Whether to show dot indicators.
+ * @param {boolean} [props.infinite=false] - Enable infinite looping of slides.
+ * @param {number} [props.speed=500] - Transition speed in milliseconds.
+ * @param {number} [props.slidesToShow=5] - Number of slides visible at once.
+ * @param {number} [props.slidesToScroll=3] - Number of slides to scroll at a time.
+ * @param {React.ReactNode} props.children - Slide content (must be valid React elements).
+ * @returns {React.ReactElement} A responsive carousel component.
+ *
+ * @example
+ * <CustomSlider slidesToShow={4} slidesToScroll={2}>
+ *   <div>Slide 1</div>
+ *   <div>Slide 2</div>
+ * </CustomSlider>
+ */
 const CustomSlider = ({
   dots = false,
   infinite = false,

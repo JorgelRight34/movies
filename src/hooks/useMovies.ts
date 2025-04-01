@@ -4,23 +4,40 @@ import { useEffect, useState } from "react";
 import { MovieFilter } from "../models/movieFilter";
 
 /**
- * Custom hook to fetch and manage a list of movies.
+ * Custom hook to fetch and manage a paginated list of movies from TMDB API.
  *
- * @param {MovieFilter} [endpoint] - The movie category to fetch (e.g., "now_playing", "popular").
- * Default is "now_playing".
- * @returns {[Movie[], number, () => void, () => void]} A tuple containing:
- *   1. An array of movies.
- *   2. The total number of movies available.
- *   3. A function to refresh the movie list.
- *   4. A function to reset the movie list.
+ * @param {string} [endpoint="now_playing"] - The movie category endpoint to fetch.
+ *    Supported values: "now_playing", "popular", "top_rated", "upcoming".
+ * @returns {Object} An object containing movie data and pagination controls.
+ * @property {Movie[]} movies - Array of movie objects.
+ * @property {number} page - Current page number (1-indexed).
+ * @property {number} totalPages - Total available pages.
+ * @property {() => void} goToNextPage - Increments page (capped at totalPages).
+ * @property {() => void} goToPrevPage - Decrements page (capped at page 1).
+ * @property {(newEndpoint?: string) => void} fetchMovies - Fetches movies (optional new endpoint).
  *
  * @example
- * const [movies, page, handleNextPage, handlePrevPage] = useMovies("popular");
+ * // Basic usage
+ * const { movies, page, goToNextPage } = useMovies("popular");
+ *
+ * @example
+ * // With manual refresh (this can be used on a search results page)
+ * const { fetchMovies } = useMovies();
+ * useEffect(() => {
+ *   fetchMovies("top_rated"); // Change category dynamically
+ * }, []);
  */
 const useMovies = (
   endpoint: MovieFilter = "now_playing",
   query: string = ""
-): [Movie[], number, () => void, () => void, () => void] => {
+): {
+  movies: Movie[];
+  page: number;
+  totalPages: number;
+  goToNextPage: () => void;
+  goToPrevPage: () => void;
+  fetchMovies: () => void;
+} => {
   const [movies, setMovies] = useState<Movie[]>([]);
   const [page, setPage] = useState(1);
   const [totalPages, setTotalPages] = useState(0);
@@ -41,11 +58,11 @@ const useMovies = (
     setTotalPages(response.data.total_pages);
   };
 
-  const handleNextPage = () => {
+  const goToNextPage = () => {
     if (page + 1 <= totalPages) setPage((prev) => prev + 1);
   };
 
-  const handlePrevPage = () => {
+  const goToPrevPage = () => {
     if (page - 1 != 0) setPage((prev) => prev - 1);
   };
 
@@ -53,7 +70,14 @@ const useMovies = (
     fetchMovies();
   }, [page]);
 
-  return [movies, page, handleNextPage, handlePrevPage, fetchMovies];
+  return {
+    movies,
+    page,
+    totalPages,
+    goToNextPage,
+    goToPrevPage,
+    fetchMovies,
+  };
 };
 
 export default useMovies;
