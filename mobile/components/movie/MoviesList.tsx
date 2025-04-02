@@ -8,9 +8,11 @@ import TitleHeading from "../ui/TitleHeading";
 import MovieCardPlaceholder from "./MovieCardPlaceholder";
 
 interface MoviesListProps {
-  heading: string;
+  heading?: string;
   movies: Movie[];
   fullListPath?: string;
+  horizontal?: boolean;
+  showAddToFavoriteBtn?: boolean;
 }
 
 /**
@@ -23,7 +25,13 @@ interface MoviesListProps {
  * @param {number} [props.fullListPath] - Path to all the movies related to the heading
  * @returns {JSX.Element} The rendered movies list component.
  */
-const MoviesList = ({ fullListPath, heading, movies }: MoviesListProps) => {
+const MoviesList = ({
+  fullListPath,
+  heading,
+  horizontal = true,
+  showAddToFavoriteBtn = true,
+  movies,
+}: MoviesListProps) => {
   return (
     <>
       <HStack
@@ -34,7 +42,7 @@ const MoviesList = ({ fullListPath, heading, movies }: MoviesListProps) => {
           alignItems: "center",
         }}
       >
-        <TitleHeading className="mb-0">{heading}</TitleHeading>
+        {heading && <TitleHeading className="mb-0">{heading}</TitleHeading>}
         {fullListPath && (
           <Link href={fullListPath as RelativePathString}>
             <FontAwesome
@@ -50,17 +58,22 @@ const MoviesList = ({ fullListPath, heading, movies }: MoviesListProps) => {
       {movies.length > 0 ? (
         <FlatList
           data={movies}
-          renderItem={({ item }) => <MovieCard movie={item} />}
+          renderItem={({ item }) => (
+            <MovieCard
+              showAddToFavoriteBtn={showAddToFavoriteBtn}
+              movie={item}
+            />
+          )}
           keyExtractor={(item) => item.id.toString()}
-          horizontal={true}
+          horizontal={horizontal}
           showsHorizontalScrollIndicator={false}
         />
       ) : (
         <FlatList
           data={Array(6).fill(null)}
           renderItem={() => <MovieCardPlaceholder />}
-          keyExtractor={(item) => item?.toString()}
-          horizontal={true}
+          keyExtractor={(_, key) => key.toString()}
+          horizontal={horizontal}
           showsHorizontalScrollIndicator={false}
         />
       )}

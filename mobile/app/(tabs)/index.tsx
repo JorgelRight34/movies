@@ -32,7 +32,7 @@ const IndexScreen = () => {
         <Box className="border-b mb-5">
           <MoviesList
             fullListPath="/movies/top_rated"
-            heading="Popular"
+            heading="Más Valorados"
             movies={moviesTopRated}
           />
         </Box>
@@ -40,7 +40,7 @@ const IndexScreen = () => {
         <Box className="border-b mb-5">
           <MoviesList
             fullListPath="/movies/upcoming"
-            heading="Popular"
+            heading="Próximamente"
             movies={moviesUpComing}
           />
         </Box>

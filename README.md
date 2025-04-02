@@ -8,7 +8,7 @@ Para desarrollar la plataforma de **Lorenzo Movies Inc**, se implementaron dos a
 
 1. **Aplicación móvil**: Desarrollada con **React Native y Expo**, permite a los usuarios descubrir películas de su interés de manera intuitiva y fluida. Expo facilita la gestión del proyecto y el despliegue en dispositivos iOS y Android, asegurando una experiencia optimizada en dispositivos móviles.
 
-2. **Aplicación web**: Desarrollada con **React y Vite**, proporciona una alternativa accesible desde cualquier navegador. Se priorizó el rendimiento y la velocidad de carga mediante el uso de **Vite**, mientras que **TypeScript** garantiza un código más estructurado y mantenible.
+2. **Aplicación web**: Desarrollada con **React y Vite**, proporciona una alternativa accesible desde cualquier navegador. Se priorizó el rendimiento y la velocidad de carga mediante el uso de **Vite**, mientras que **TypeScript** garantiza un código más estructurado y mantenible. Se encuentra en [Este enlace](https://lorenzo-movies-inc.vercel.app/)
 
 Ambas aplicaciones comparten una arquitectura basada en **TypeScript**, lo que facilita la consistencia en el desarrollo, la reutilización de componentes y la escalabilidad del proyecto.
 
@@ -42,7 +42,7 @@ git clone https://github.com/JorgelRight34/movies
 2. Navega al directorio de la aplicación web:
 
 ```sh
-cd lorenzo-movies/web
+cd web
 ```
 
 3. Instala las dependencias:
@@ -64,7 +64,7 @@ La aplicación estará disponible en `http://localhost:5173/` por defecto.
 1. Navega al directorio de la aplicación móvil:
 
 ```sh
-cd lorenzo-movies/mobile
+cd mobile
 ```
 
 2. Instala las dependencias:
@@ -76,7 +76,7 @@ npm install
 3. Inicia la aplicación con Expo:
 
 ```sh
-npx expo start
+npm start
 ```
 
 Escanea el código QR con la aplicación **Expo Go** en tu dispositivo móvil o usa un emulador para probar la app.
@@ -107,7 +107,6 @@ Esto garantizará que todas las funcionalidades clave se mantengan estables a lo
 
 ```
 
-```markdown
 # 📅 Sprint 1
 
 ## 🎬 FF-1 - Lista de películas en cartelera
@@ -190,7 +189,9 @@ Los clientes pueden calificar una película con estrellas.
 
 ### 📽️ Vista Previa
 
-![Gif de votación](assets/web/ff-3.gif)
+<div style="text-align: center;">
+  <img src="assets/web/ff-3.gif" alt="Votación app móvil" width="300">
+</div>
 
 #### 📌 Características:
 
@@ -203,7 +204,9 @@ Los clientes pueden calificar una película con estrellas.
 
 ### 📽️ Vista Previa
 
-![Gif de votación](assets/mobile/ff-3.gif)
+<div style="text-align: center;">
+  <img src="assets/mobile/ff-3.gif" alt="Votación app móvil" width="300">
+</div>
 
 #### 📌 Características:
 
@@ -223,15 +226,18 @@ Los clientes pueden ver una lista de películas similares o recomendadas.
 #### 🖥️ Versión Escritorio
 
 ![Lista de películas recomendadas - Web](assets/web/ff-4.png)
-![Lista de películas recomendadas - Web (móvil)](assets/web/ff-4-sm.png)
 
 #### 📱 Versión Móvil
 
-![Lista de películas recomendadas - Móvil](assets/mobile/ff-4.png)
+<div style="text-align: center;">
+  <img src="assets/web/ff-4-sm.png" alt="Lista de películas recomendadas - Web (móvil)" width="300">
+</div>
 
 ### 📱 Aplicación Móvil
 
-![Lista de películas recomendadas - Móvil](assets/mobile/ff-4.png)
+<div style="text-align: center;">
+  <img src="assets/mobile/ff-4.png" alt="Lista de películas recomendadas - Móvil" width="300">
+</div>
 
 ---
 
@@ -282,7 +288,6 @@ La búsqueda se realiza cada 500 ms para evitar realizar una solicitud por cada 
 ### 2. Autenticación
 
 ![Login](assets/web/login.gif)
-```
 
 ---
 
@@ -298,17 +303,17 @@ Me enfoqué en diseñar una arquitectura limpia siguiendo las mejores prácticas
 
 #### **Estructura y Responsabilidades**
 
-✅ **Componentes** → Se encargan únicamente del **renderizado** (DOM/React Native).  
-✅ **Hooks** → Gestionan el **estado** y los **efectos** de la aplicación.  
-✅ **Servicios** → Abstraen la comunicación con **APIs** y manejan _side-effects_.  
+✅ **Componentes** → Se encargan únicamente del **renderizado** (DOM/React Native).
+✅ **Hooks** → Gestionan el **estado** y los **efectos** de la aplicación.
+✅ **Servicios** → Abstraen la comunicación con **APIs** y manejan _side-effects_.
 ✅ **Modelos** → Definen la **estructura** de los objetos retornados por la API.
 
 También me enfoqué en hacer el código altamente **tipado** con **TypeScript**, utilizando **modelos** para cada objeto retornado por la API.
 
 #### **Beneficios**
 
-✅ Proporciona **sugerencias intuitivas** durante el desarrollo.  
-✅ Facilita la **creación y manipulación** de objetos de manera segura.  
+✅ Proporciona **sugerencias intuitivas** durante el desarrollo.
+✅ Facilita la **creación y manipulación** de objetos de manera segura.
 ✅ Previene errores, haciendo que el código sea más **robusto** y **mantenible**.
 
 ## Implementación Clave
@@ -379,11 +384,11 @@ const useFavorites = (): UseFavoritesReturn => {
     setTotalPages(response.data.total_pages);
   };
 
-  const handleNextPage = () => {
+  const goToNextPage = () => {
     if (page + 1 <= totalPages) setPage((prev) => prev + 1);
   };
 
-  const handlePreviousPage = () => {
+  const goToPrevPage = () => {
     if (page - 1 != 0) setPage((prev) => prev - 1);
   };
 
@@ -391,7 +396,7 @@ const useFavorites = (): UseFavoritesReturn => {
     getFavoriteMovies();
   }, [page]);
 
-  return { favoriteMovies, page, totalPages, handleNextPage, handlePreviousPage };
+  return { favoriteMovies, page, totalPages, goToNextPage, goToPrevPage };
 };
 
 export default useFavorites;
@@ -413,12 +418,10 @@ Este **hook** retorna la lista de películas favoritas del usuario, utilizando e
 ### useMovie
 
 ```javascript
-interface UseFavoritesReturn {
-  favoriteMovies: Movie[],
-  page: number,
-  totalPages: number,
-  handleNextPage: () => void,
-  handlePreviousPage: () => void
+interface UseMovieReturn {
+  movie: Movie | null;
+  credits: { cast: Actor[]; crew: Worker[] };
+  voteForMovie: (rating: number) => void;
 }
 
 /* ... */
@@ -438,7 +441,7 @@ const useMovie = (id: string): UseMovieReturn => {
 
   const voteForMovie = async (rating: number) => {
     const response = await api.post(`movie/${id}/rating?`, {
-      value: rating,
+      value: rating > 0 ? rating : 0.1,
     });
 
     if (response.data.success) {

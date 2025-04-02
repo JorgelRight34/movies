@@ -4,11 +4,11 @@ import { Movie } from "../models/movie";
 import { ACCOUNT_ID } from "../lib/constants";
 
 interface UseFavoritesReturn {
-  favoriteMovies: Movie[],
-  page: number,
-  totalPages: number,
-  handleNextPage: () => void,
-  handlePreviousPage: () => void
+  favoriteMovies: Movie[];
+  page: number;
+  totalPages: number;
+  goToNextPage: () => void;
+  goToPrevPage: () => void;
 }
 
 /**
@@ -36,11 +36,11 @@ const useFavorites = (): UseFavoritesReturn => {
     setTotalPages(response.data.total_pages);
   };
 
-  const handleNextPage = () => {
+  const goToNextPage = () => {
     if (page + 1 <= totalPages) setPage((prev) => prev + 1);
   };
 
-  const handlePreviousPage = () => {
+  const goToPrevPage = () => {
     if (page - 1 != 0) setPage((prev) => prev - 1);
   };
 
@@ -48,7 +48,7 @@ const useFavorites = (): UseFavoritesReturn => {
     getFavoriteMovies();
   }, [page]);
 
-  return { favoriteMovies, page, totalPages, handleNextPage, handlePreviousPage };
+  return { favoriteMovies, page, totalPages, goToNextPage, goToPrevPage };
 };
 
 export default useFavorites;

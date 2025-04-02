@@ -7,8 +7,8 @@ import { MovieFilter } from "@/models/movieFilter";
 import { Stack } from "expo-router";
 import { useSearchParams } from "expo-router/build/hooks";
 import { useEffect, useMemo, useRef } from "react";
-import { FlatList, ScrollView } from "react-native";
-
+import { FlatList, SafeAreaView, ScrollView } from "react-native";
+import MoviesList from "@/components/movie/MoviesList";
 /**
  * Page component for search movies result.
  *
@@ -21,7 +21,7 @@ const Movies = () => {
   const { movies, page, totalPages, goToNextPage, goToPrevPage } = useMovies(
     (filter as MovieFilter) || "now_playing"
   );
-  const scrollViewRef = useRef<ScrollView>(null);
+  const flatListRef = useRef<FlatList>(null);
 
   const title = useMemo(() => {
     switch (filter) {
@@ -40,29 +40,28 @@ const Movies = () => {
 
   useEffect(() => {
     // Go to the top of the page each time user navigates through pages
-    scrollViewRef.current?.scrollTo({ y: 0, animated: false });
+    flatListRef.current?.scrollToIndex({ index: 0, animated: false });
   }, [page]);
 
   if (!movies) return <Stack.Screen options={{ headerTitle: title }} />;
 
   return (
-    <ScrollView ref={scrollViewRef}>
+    <ScrollView>
       <Stack.Screen options={{ headerTitle: title }} />
       <Box className="p-3">
-        <TitleHeading>Películas</TitleHeading>
-        <Box className="flex-1 items-center">
-          <FlatList
-            data={movies}
-            renderItem={({ item }) => <MovieCard movie={item} />}
-            keyExtractor={(item) => item.id.toString()}
-          />
+        <TitleHeading>{title}</TitleHeading>
+      </Box>
+      <MoviesList movies={movies} horizontal={true} />
+
+      <Box>
+        {movies.length > 0 && (
           <PaginationControls
             page={page}
             totalPages={totalPages}
             next={goToNextPage}
             back={goToPrevPage}
           />
-        </Box>
+        )}
       </Box>
     </ScrollView>
   );

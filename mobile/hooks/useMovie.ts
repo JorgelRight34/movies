@@ -36,7 +36,7 @@ const useMovie = (id: string): UseMovieReturn => {
 
   const voteForMovie = async (rating: number) => {
     const response = await api.post(`movie/${id}/rating?`, {
-      value: rating,
+      value: rating > 0 ? rating : 0.1,
     });
 
     if (response.data.success) {

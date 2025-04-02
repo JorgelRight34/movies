@@ -1,4 +1,5 @@
 import MoviesList from "@/components/movie/MoviesList";
+import PaginationControls from "@/components/PaginationControls";
 import { Box } from "@/components/ui/box";
 import { Input, InputField } from "@/components/ui/input";
 import useMovies from "@/hooks/useMovies";
@@ -14,7 +15,8 @@ import { useRef } from "react";
  * @returns {JSX.Element} A search input page that renders movies that matches the search query.
  */
 const SearchPage = () => {
-  const { movies, fetchMovies } = useMovies("search");
+  const { movies, page, totalPages, goToNextPage, goToPrevPage, fetchMovies } =
+    useMovies("search");
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   const handleOnChange = (text: string) => {
@@ -43,6 +45,16 @@ const SearchPage = () => {
         />
       </Input>
       {movies.length > 0 && <MoviesList heading="Resultados" movies={movies} />}
+      <Box>
+        {movies.length > 0 && (
+          <PaginationControls
+            page={page}
+            totalPages={totalPages}
+            next={goToNextPage}
+            back={goToPrevPage}
+          />
+        )}
+      </Box>
     </Box>
   );
 };

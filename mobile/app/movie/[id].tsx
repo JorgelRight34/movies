@@ -61,10 +61,7 @@ const MovieDetailsScreen = () => {
         )}
         <Box className="p-3 mb-5">
           {recommendedMovies && (
-            <MoviesList
-              movies={recommendedMovies}
-              heading="Recommended Movies"
-            />
+            <MoviesList movies={recommendedMovies} heading="Recomendados" />
           )}
         </Box>
       </ScrollView>
