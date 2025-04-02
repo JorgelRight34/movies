@@ -274,7 +274,7 @@ Le agregué a las aplicaciones un toque personal añadiendo nuevas funcionalidad
 ![Busqueda de peliculas](assets/web/search-lg.png)
 
 <div style="text-align: center;">
-  <img src="assets/web/search-sm.jpeg" alt="Búsqueda de películas en móvil" width="300">
+  <img src="assets/web/search-sm.jpg" alt="Búsqueda de películas en móvil" width="300">
 </div>
 
 #### 📱 Aplicación Móvil
