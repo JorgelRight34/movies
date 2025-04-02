@@ -117,12 +117,12 @@ Los clientes pueden ver una lista de películas que se están reproduciendo actu
 
 #### 🖥️ Versión Escritorio
 
-![Lista de películas en la app web - escritorio](assets/web/ff-1.png)
+![Lista de películas en la app web - escritorio](https://res.cloudinary.com/dt2rpkze9/image/upload/v1743630167/assets/web/iocog1wyvaws2jnrzvdx.png)
 
 #### 📱 Versión Móvil
 
 <div style="text-align: center;">
-  <img src="assets/web/ff-1-sm.png" alt="Lista de películas en la app web - móvil" width="300">
+  <img src="https://res.cloudinary.com/dt2rpkze9/image/upload/v1743626794/assets/web/jwxrvcls8zgujjer4dsn.png" alt="Lista de películas en la app web - móvil" width="300">
 </div>
 
 #### 📌 Características:
@@ -134,7 +134,7 @@ Los clientes pueden ver una lista de películas que se están reproduciendo actu
 ### 📱 Aplicación Móvil
 
 <div style="text-align: center;">
-  <img src="assets/mobile/ff-1.png" alt="Lista de películas en la app móvil" width="300">
+  <img src="https://res.cloudinary.com/dt2rpkze9/image/upload/v1743626853/assets/mobile/oos5j60asd7hcfsupnnr.gif" alt="Lista de películas en la app móvil" width="300">
 </div>
 
 #### 📌 Características:
@@ -154,15 +154,15 @@ Los clientes pueden ver más detalles de una película.
 #### 🖥️ Versión Escritorio
 
 ![Detalles de película - escritorio](https://res.cloudinary.com/dt2rpkze9/image/upload/v1743626828/assets/web/hcvpc9yg4bmkuynuelie.png)
-![Detalles de película - escritorio](<assets/web/ff-2(1).png>)
-![Detalles de película - escritorio](<assets/web/ff-2(2).png>)
-![Detalles de película - escritorio](<assets/web/ff-2(3).png>)
+![Detalles de película - escritorio](https://res.cloudinary.com/dt2rpkze9/image/upload/v1743626801/assets/web/y5oto4bkjzeoi8g7o5i3.png)
+![Detalles de película - escritorio](https://res.cloudinary.com/dt2rpkze9/image/upload/v1743626813/assets/web/ccbejqwytvwuhtdoe4c7.png)
+![Detalles de película - escritorio](https://res.cloudinary.com/dt2rpkze9/image/upload/v1743626811/assets/web/mgi4mjvnzfwee2nt2tgg.png)
 
 #### 📱 Versión Móvil
 
 <div style="text-align: center;">
   <img src="https://res.cloudinary.com/dt2rpkze9/image/upload/v1743626820/assets/web/vg13v4tefq8ap1uxyasp.png" alt="Detalles de película en móvil" width="300">
-  <img src="assets/web/ff-2-sm(1).png" alt="Detalles de película en móvil" width="300">
+  <img src="https://res.cloudinary.com/dt2rpkze9/image/upload/v1743626814/assets/web/gwgac7b9stnhza4pazfo.png" alt="Detalles de película en móvil" width="300">
 </div>
 
 #### 📌 Características:
