@@ -1,3 +1,4 @@
 .movie-details-poster {
   height: 40rem;
+  object-fit: contain;
 }

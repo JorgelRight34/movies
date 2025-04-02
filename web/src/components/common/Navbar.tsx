@@ -41,17 +41,17 @@ const Navbar = () => {
               className={({ isActive }) =>
                 isActive ? "border-accent-bottom" : ""
               }
-              to={`/`}
+              to={`/favorites`}
             >
-              <span className="material-icons-outlined fs-1">home</span>
+              <span className="material-icons-outlined fs-1">favorite</span>
             </NavLink>
             <NavLink
               className={({ isActive }) =>
                 isActive ? "border-accent-bottom" : ""
               }
-              to={`/favorites`}
+              to={`/`}
             >
-              <span className="material-icons-outlined fs-1">favorite</span>
+              <span className="material-icons-outlined fs-1">home</span>
             </NavLink>
             {/* If user is not logged in show the button */}
             <span
