@@ -2,7 +2,6 @@ import { NavLink } from "react-router";
 import LoginBtn from "./LoginBtn";
 import { handleTMDBAuth } from "../../data/tmdbAuth";
 import SearchMovieInput from "../SearchMovieInput/SearchMovieInput";
-import { ACCOUNT_ID } from "../../lib/constants";
 
 /**
  * The navbar for the whole app. On large screens a navbar at the top is visible,
