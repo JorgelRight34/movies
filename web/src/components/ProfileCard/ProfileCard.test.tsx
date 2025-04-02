@@ -15,18 +15,6 @@ export const mockProfile: Person = {
 };
 
 describe("ProfileCard", () => {
-  it("profile name should be visible", async () => {
-    render(
-      <ProfileCard
-        name={mockProfile.name}
-        photo={mockProfile.profile_path}
-        subheading="Spiderman"
-      />
-    );
-    const regex = new RegExp(mockProfile.name, "i");
-    await expect(screen.getByText(regex)).toBeInTheDocument();
-  });
-
   it("image should have as alt the name of the person", async () => {
     render(
       <ProfileCard

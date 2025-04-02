@@ -23,7 +23,7 @@ describe("useFavorites", () => {
     });
 
     // Call handle to next page function
-    await act(() => result.current.handleNextPage());
+    await act(() => result.current.goToNextPage());
 
     // Next page should be 2
     await waitFor(() => expect(result.current.page).not.toBe(2));
@@ -37,7 +37,7 @@ describe("useFavorites", () => {
     expect(result.current.page).toBe(1);
 
     // Call handle to next page function
-    await act(() => result.current.handleNextPage());
+    await act(() => result.current.goToPrevPage());
 
     // Should not be 2
     await waitFor(() => expect(result.current.page).not.toBe(2));
@@ -50,9 +50,9 @@ describe("useFavorites", () => {
     // Expect initial value to be 1
     expect(result.current.page).toBe(1);
 
-    await act(() => result.current.handlePreviousPage);
+    await act(() => result.current.goToNextPage);
 
     // Page should not be 0 or below
-    await waitFor(() => expect(result.current.handlePreviousPage).not.toBeLessThanOrEqual(0));
+    await waitFor(() => expect(result.current.page).not.toBeLessThanOrEqual(0));
   });
 });
