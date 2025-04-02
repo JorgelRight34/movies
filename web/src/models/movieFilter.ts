@@ -1,7 +1,7 @@
 export type MovieFilter =
   | "now_playing"
   | "popular"
-  | "top_rated"
-  | "upcoming"
   | "search"
-  | "trending";
+  | "top_rated"
+  | "trending"
+  | "upcoming";

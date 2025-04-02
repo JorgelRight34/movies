@@ -32,34 +32,8 @@ api.interceptors.response.use(
     return response;
   },
   (error) => {
-    console.log("checking", error);
     if (error instanceof AxiosError) {
-      switch (error.code) {
-        case "ERR_NETWORK":
-          toast.error(
-            "Connection refused. Make sure to have a stable connection."
-          );
-          break;
-        case "ERR_BAD_RESPONSE":
-          toast.error("Oops!, internal server error.");
-          break;
-        case "ERR_BAD_REQUEST":
-          switch (error.response?.status) {
-            case 404:
-              toast.error("Not found.");
-              break;
-            case 401:
-              toast.error("Unathorized");
-              break;
-            default:
-              toast.error("Bad request");
-              break;
-          }
-          break;
-        default:
-          toast.error("An error has ocurred.");
-          break;
-      }
+      handleError(error);
     } else {
       toast.error("An error has ocurred");
     }
@@ -68,5 +42,34 @@ api.interceptors.response.use(
     return Promise.reject(error);
   }
 );
+
+const handleError = (error: AxiosError) => {
+  switch (error.code) {
+    case "ERR_NETWORK":
+      toast.error(
+        "Conexión rechazada. Asegúrate de tener una conexión estable."
+      );
+      break;
+    case "ERR_BAD_RESPONSE":
+      toast.error("¡Ups! Error interno del servidor.");
+      break;
+    case "ERR_BAD_REQUEST":
+      switch (error.response?.status) {
+        case 404:
+          toast.error("No encontrado.");
+          break;
+        case 401:
+          toast.error("No autorizado.");
+          break;
+        default:
+          toast.error("Solicitud incorrecta.");
+          break;
+      }
+      break;
+    default:
+      toast.error("Ha ocurrido un error.");
+      break;
+  }
+};
 
 export default api;

@@ -13,7 +13,7 @@ import { ACCOUNT_ID } from "../lib/constants";
  */
 const useAddMovieToFavorites = () => {
   const addMovieToFavorites = async (id: number, favorite = true) => {
-    const response = await api.post(`account/${ACCOUNT_ID || null}/favorite`, {
+    const response = await api.post(`account/${ACCOUNT_ID}/favorite`, {
       media_type: "movie",
       media_id: id,
       favorite: favorite,
