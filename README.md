@@ -103,10 +103,6 @@ npm test
 
 Esto garantizará que todas las funcionalidades clave se mantengan estables a lo largo del desarrollo. ✅
 
-```
-
-```
-
 # 📅 Sprint 1
 
 ## 🎬 FF-1 - Lista de películas en cartelera
@@ -134,7 +130,7 @@ Los clientes pueden ver una lista de películas que se están reproduciendo actu
 ### 📱 Aplicación Móvil
 
 <div style="text-align: center;">
-  <img src="https://res.cloudinary.com/dt2rpkze9/image/upload/v1743626853/assets/mobile/oos5j60asd7hcfsupnnr.gif" alt="Lista de películas en la app móvil" width="300">
+  <img src="https://res.cloudinary.com/dt2rpkze9/image/upload/v1743630694/assets/mobile/gflujwfcob80lrybvmbg.jpg" alt="Lista de películas en la app móvil" width="300">
 </div>
 
 #### 📌 Características:
