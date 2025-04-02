@@ -60,7 +60,7 @@ const MovieDetailsList = ({ movie, voteForMovie }: DetailsProps) => {
             </div>
             {/* Rating stars form */}
             <RatingStars
-              readOnly={false}
+              readOnly={true}
               renderLabelText={true}
               rating={movie.vote_average}
               callback={voteForMovie}
