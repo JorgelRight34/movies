@@ -34,7 +34,7 @@ const MovieOverview = ({ movie, voteForMovie }: MovieOverviewProps) => {
       {trailer && (
         <YoutubePlayer
           height={230}
-          play={true}
+          play={false}
           videoId={trailer?.key}
           webViewStyle={{ margin: 0 }}
         />

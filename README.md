@@ -107,6 +107,7 @@ Esto garantizará que todas las funcionalidades clave se mantengan estables a lo
 
 ```
 
+```markdown
 # 📅 Sprint 1
 
 ## 🎬 FF-1 - Lista de películas en cartelera
@@ -173,9 +174,7 @@ Los clientes pueden ver más detalles de una película.
 ### 📱 Aplicación Móvil
 
 <div style="text-align: center;">
-  <img src="assets/mobile/ff-2.png" alt="Detalles de película en la app móvil" width="300">
-  <img src="assets/mobile/ff-2(1).png" alt="Detalles de película en la app móvil" width="300">
-  <img src="assets/mobile/ff-2(2).png" alt="Detalles de película en la app móvil" width="300">
+  <img src="assets/mobile/ff-2.gif" alt="Detalles de película en la app móvil" width="300">
 </div>
 
 #### 📌 Características:
@@ -185,13 +184,26 @@ Los clientes pueden ver más detalles de una película.
 
 ---
 
-## ⭐ FF-3 - Votar por una película
+## ⭐ FF-3 - Votar por una película (Web)
 
 Los clientes pueden calificar una película con estrellas.
 
 ### 📽️ Vista Previa
 
 ![Gif de votación](assets/web/ff-3.gif)
+
+#### 📌 Características:
+
+- Los usuarios pueden calificar una película usando estrellas.
+- La calificación se guarda en la API.
+
+## ⭐ FF-3 - Votar por una película (App Móvil)
+
+Los clientes pueden calificar una película con estrellas.
+
+### 📽️ Vista Previa
+
+![Gif de votación](assets/mobile/ff-3.gif)
 
 #### 📌 Características:
 
@@ -237,7 +249,7 @@ Los clientes pueden añadir películas a su lista de favoritos.
 
 ### 📱 Aplicación Móvil
 
-![Gif de añadir a favoritos en móvil](assets/mobile/favorites.gif)
+![Gif de añadir a favoritos en móvil](assets/mobile/ff-5.gif)
 
 #### 📌 Características:
 
@@ -247,13 +259,30 @@ Los clientes pueden añadir películas a su lista de favoritos.
 
 # Extras personales
 
-Le aguregue a las aplicaciones un toque personal anadiendo nuevas funcionalidades
+Le agregué a las aplicaciones un toque personal añadiendo nuevas funcionalidades.
 
-### 1 - Busqueda de peliculas
+### 1. Búsqueda de películas
+
+#### 🌐 Página Web
 
 ![Busqueda de peliculas](assets/web/search-lg.gif)
 
-### 2 - Autenticacion
+<div style="text-align: center;">
+  <img src="assets/web/search-sm.gif" alt="Búsqueda de películas en móvil" width="300">
+</div>
+
+#### 📱 Aplicación Móvil
+
+<div style="text-align: center;">
+  <img src="assets/mobile/search.gif" alt="Búsqueda de películas en móvil" width="300">
+</div>
+
+La búsqueda se realiza cada 500 ms para evitar realizar una solicitud por cada letra ingresada. Si se escribe una nueva letra antes de que transcurran los 500 ms, se cancela la espera de la solicitud anterior y se inicia una nueva. Los resultados de la búsqueda se muestran en tiempo real mientras se escribe en la página de búsqueda.
+
+### 2. Autenticación
+
+![Login](assets/web/login.gif)
+```
 
 ---
 

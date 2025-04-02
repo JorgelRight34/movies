@@ -38,6 +38,7 @@ const MovieCredits = ({ credits }: MovieCreditsProps) => {
               subheading={item.character}
             />
           )}
+          keyExtractor={(_, index) => index.toString()}
           horizontal={true}
           showsHorizontalScrollIndicator={false}
         />
@@ -54,6 +55,7 @@ const MovieCredits = ({ credits }: MovieCreditsProps) => {
               subheading={item.job}
             />
           )}
+          keyExtractor={(_, index) => index.toString()}
           horizontal={true}
           showsHorizontalScrollIndicator={false}
         />
@@ -70,6 +72,7 @@ const MovieCredits = ({ credits }: MovieCreditsProps) => {
               subheading={item.name}
             />
           )}
+          keyExtractor={(_, index) => index.toString()}
           horizontal={true}
           showsHorizontalScrollIndicator={false}
         />

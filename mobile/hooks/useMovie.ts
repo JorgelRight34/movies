@@ -6,9 +6,9 @@ import { Worker } from "../models/worker";
 import { Alert } from "react-native";
 
 interface UseMovieReturn {
-  movie: Movie | null,
-  credits: { cast: Actor[], crew: Worker[] },
-  voteForMovie: (rating: number) => Promise<void>
+  movie: Movie | null;
+  credits: { cast: Actor[]; crew: Worker[] };
+  voteForMovie: (rating: number) => Promise<void>;
 }
 
 /**
@@ -21,13 +21,11 @@ interface UseMovieReturn {
  *  2. An object with the movie's cast and crew.
  *  3. A function to update the movie rating asynchronously.
  */
-const useMovie = (
-  id: string
-): UseMovieReturn => {
+const useMovie = (id: string): UseMovieReturn => {
   const [movie, setMovie] = useState<Movie | null>(null);
-  const [credits, setCredits] = useState<{ cast: Actor[], crew: Worker[] }>({
+  const [credits, setCredits] = useState<{ cast: Actor[]; crew: Worker[] }>({
     cast: [],
-    crew: []
+    crew: [],
   });
 
   const fetchMovie = async () => {
@@ -42,7 +40,7 @@ const useMovie = (
     });
 
     if (response.data.success) {
-      Alert.alert("Favorite", "You have liked it!")
+      Alert.alert(`Has dejado una valoración de ${rating}/10!`);
       fetchMovie(); // Update movie
     }
   };

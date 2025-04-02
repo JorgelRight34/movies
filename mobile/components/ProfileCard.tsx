@@ -20,9 +20,11 @@ interface ProfileCardProps {
  * @returns {JSX.Element} The rendered profile component.
  */
 const ProfileCard = ({ name, photo, subheading }: ProfileCardProps) => {
+  const defaultProfilePicUri =
+    "https://static.vecteezy.com/system/resources/thumbnails/009/292/244/small/default-avatar-icon-of-social-media-user-vector.jpg";
   const imgSource = photo
     ? `https://image.tmdb.org/t/p/w500/${photo}`
-    : require("../assets/images/default-profile-pic.webp");
+    : defaultProfilePicUri;
 
   return (
     <Card
@@ -33,7 +35,9 @@ const ProfileCard = ({ name, photo, subheading }: ProfileCardProps) => {
         source={{
           uri: imgSource,
         }}
-        defaultSource={require("../assets/images/default-profile-pic.webp")}
+        defaultSource={{
+          uri: defaultProfilePicUri,
+        }}
         className="rounded-t-lg w-full h-[240px] object-cover bg-gray-300"
         resizeMode="cover"
         alt={name}

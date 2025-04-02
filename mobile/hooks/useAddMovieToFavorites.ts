@@ -20,7 +20,12 @@ const useAddMovieToFavorites = () => {
     });
 
     if (response.data.success) {
-      Alert.alert("Favorites", favorite ? `Movie ADDED to favorites!` : `Movie DELETED from favorites!`)
+      Alert.alert(
+        "Favorites",
+        favorite
+          ? "¡Película AGREGADA a favoritos!"
+          : "¡Película ELIMINADA de favoritos!"
+      );
     }
   };
 

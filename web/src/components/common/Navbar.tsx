@@ -28,7 +28,7 @@ const Navbar = () => {
             <NavLink to="/">Películas</NavLink>
             <NavLink to="/favorites">Favoritos</NavLink>
             {/* If user is not logged in show the button */}
-            {ACCOUNT_ID && <LoginBtn />}
+            <LoginBtn />
           </div>
         </nav>
       </header>
@@ -55,14 +55,12 @@ const Navbar = () => {
               <span className="material-icons-outlined fs-1">favorite</span>
             </NavLink>
             {/* If user is not logged in show the button */}
-            {ACCOUNT_ID && (
-              <span
-                className="material-icons-outlined fs-1"
-                onClick={handleTMDBAuth}
-              >
-                login
-              </span>
-            )}
+            <span
+              className="material-icons-outlined fs-1"
+              onClick={handleTMDBAuth}
+            >
+              login
+            </span>
           </div>
         </nav>
       </div>
