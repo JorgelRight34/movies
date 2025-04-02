@@ -25,7 +25,7 @@ export default function TabLayout() {
           // to prevent a hydration error in React Navigation v6.
           headerShown: true,
         }}
-        initialRouteName="home"
+        initialRouteName="index"
       >
         <Tabs.Screen
           name="favorites"
@@ -35,7 +35,7 @@ export default function TabLayout() {
           }}
         />
         <Tabs.Screen
-          name="home"
+          name="index"
           options={{
             title: "Películas",
             tabBarIcon: ({ color }) => <TabBarIcon name="home" color={color} />,

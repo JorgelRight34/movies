@@ -36,7 +36,8 @@ const MovieDetails = ({ movie, voteForMovie }: MovieDetailsProps) => {
           source={{
             uri: getFullMovieImagePath(movie.poster_path),
           }}
-          className="rounded-t-lg h-[600px] w-full aspect-auto object-contain"
+          style={{ resizeMode: "contain", width: "100%" }}
+          className="rounded-t-lg h-[600px] w-full aspect-auto object-contain bg-gray-300"
           alt={movie.title}
         />
         <Heading className="text-white">{movie.title}</Heading>

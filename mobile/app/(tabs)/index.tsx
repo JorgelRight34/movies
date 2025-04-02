@@ -3,7 +3,7 @@ import { Box } from "@/components/ui/box";
 import useMovies from "@/hooks/useMovies";
 import { ScrollView } from "react-native";
 
-const HomeScreen = () => {
+const IndexScreen = () => {
   const { movies: moviesPlayingNow } = useMovies("now_playing");
   const { movies: moviesPopular } = useMovies("popular");
   const { movies: moviesTopRated } = useMovies("top_rated");
@@ -49,4 +49,4 @@ const HomeScreen = () => {
   );
 };
 
-export default HomeScreen;
+export default IndexScreen;

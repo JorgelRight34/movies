@@ -20,19 +20,20 @@ interface ProfileCardProps {
  * @returns {JSX.Element} The rendered profile component.
  */
 const ProfileCard = ({ name, photo, subheading }: ProfileCardProps) => {
+  const imgSource = photo
+    ? `https://image.tmdb.org/t/p/w500/${photo}`
+    : require("../assets/images/default-profile-pic.webp");
+
   return (
     <Card
-      className="rounded-lg p-0 max-w-[360px] m-3"
+      className="rounded-lg p-0 w-[200px] m-3"
       style={{ backgroundColor: theme.colors.card }}
     >
       <Image
         source={{
-          uri: photo
-            ? `https://image.tmdb.org/t/p/w500/${photo}` // Use sized variant (w500)
-            : require("../assets/images/default-profile-pic.webp"),
+          uri: imgSource,
         }}
         defaultSource={require("../assets/images/default-profile-pic.webp")}
-        onError={(e) => console.log("Image load error:", e.nativeEvent.error)}
         className="rounded-t-lg w-full h-[240px] object-cover bg-gray-300"
         resizeMode="cover"
         alt={name}
