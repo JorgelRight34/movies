@@ -3,11 +3,11 @@ import useMovie from "../../hooks/useMovie";
 import useRecommendedMovies from "../../hooks/useRecommendedMovies";
 import Layout from "../../layouts/Layout";
 import MoviesListings from "../../components/MovieListings/MoviesListings";
-import Overview from "../../components/MovieOverview/Overview";
+import MovieOverview from "../../components/MovieOverview/MovieOverview";
 import "./movie-details.css";
 import ProfilesDetails from "../../components/ProfilesDetails/ProfilesDetails";
 import CompaniesDetails from "../../components/CompaniesDetails/CompaniesDetails";
-import MovieDetailsList from "../../components/MovieDetailsList/MovieDetails";
+import MovieDetailsList from "../../components/MovieDetailsList/MovieDetailsList";
 
 /**
  * Page component for the details of a single movie.
@@ -17,7 +17,7 @@ import MovieDetailsList from "../../components/MovieDetailsList/MovieDetails";
  */
 const MovieDetails = () => {
   const { id } = useParams();
-  const [movie, credits, voteForMovie] = useMovie(id || "");
+  const { movie, credits, voteForMovie } = useMovie(id || "");
   const recommendeMovies = useRecommendedMovies(id || "");
 
   // The value is multiplied by two because it's a rating out of 5 stars
@@ -38,7 +38,7 @@ const MovieDetails = () => {
           {/* Movie overview section */}
           <section className="row mx-0 border-bottom mb-3 mb-lg-5 pb-5">
             <div className="bg-dark rounded-3 p-3 shadow-sm">
-              <Overview voteForMovie={handleVoteForMovie} movie={movie} />
+              <MovieOverview voteForMovie={handleVoteForMovie} movie={movie} />
             </div>
           </section>
           {/* Movie cast, crew and production companies section */}
@@ -68,7 +68,7 @@ const MovieDetails = () => {
             {movie.production_companies && (
               <div className="p-3">
                 <h3 className="border-accent-left mb-3">
-                  Companies ({movie.production_companies?.length})
+                  Compañías ({movie.production_companies?.length})
                 </h3>
                 <div className="px-3">
                   <CompaniesDetails companies={movie.production_companies} />
@@ -84,7 +84,7 @@ const MovieDetails = () => {
         {recommendeMovies.length > 0 ? (
           <MoviesListings movies={recommendeMovies} />
         ) : (
-          <span>No recommended movies</span>
+          <span>No hay recomendados</span>
         )}
       </section>
     </Layout>

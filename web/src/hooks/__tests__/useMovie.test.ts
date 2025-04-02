@@ -19,7 +19,7 @@ describe("useMovie", () => {
 
         // Wait for the hook to update the state
         await waitFor(() => {
-            expect(result.current[0]).toMatchObject(expectedMovieStructure);
+            expect(result.current.movie).toMatchObject(expectedMovieStructure);
         });
     });
 
@@ -29,8 +29,8 @@ describe("useMovie", () => {
 
         // Wait for the hook to update the state
         await waitFor(() => {
-            expect(result.current[1].cast.every(actor => expect(actor).toMatchObject(expectedActorStructure))).toBe(true);
-            expect(result.current[1].crew.every(worker => expect(worker).toMatchObject(expectedWorkerStructure))).toBe(true);
+            expect(result.current.credits.cast.every(actor => expect(actor).toMatchObject(expectedActorStructure))).toBe(true);
+            expect(result.current.credits.crew.every(worker => expect(worker).toMatchObject(expectedWorkerStructure))).toBe(true);
         });
     });
 
@@ -39,9 +39,9 @@ describe("useMovie", () => {
         const rating = 5;
 
         // Wait for the function to be available
-        await waitFor(() => expect(result.current[2]).toBeDefined());
+        await waitFor(() => expect(result.current.voteForMovie).toBeDefined());
 
-        act(() => result.current[2](rating));
+        act(() => result.current.voteForMovie(rating));
 
         await waitFor(() => expect(api.post).toHaveBeenCalledWith(expect.stringMatching(`movie/${testMovieId}/rating`), { value: rating }));
     })

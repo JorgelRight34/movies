@@ -21,7 +21,9 @@ const useAddMovieToFavorites = () => {
 
     if (response.data.success) {
       toast.success(
-        favorite ? `Movie ADDED to favorites!` : `Movie DELETED from favorites!`
+        favorite
+          ? "¡Película AGREGADA a favoritos!"
+          : "¡Película ELIMINADA de favoritos!"
       );
     }
   };

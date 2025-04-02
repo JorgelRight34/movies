@@ -1,0 +1,35 @@
+# Node modules
+web/node_modules/
+mobile/node_modules
+mobile/data/api
+
+# Build output
+web/dist/
+
+# Local environment variables
+web/.env.local
+web/.env.*.local
+mobile/.env
+
+# Log files
+*.log
+
+# Vite cache
+.vite/
+
+# Editor directories and files
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+
+# macOS system files
+.DS_Store
+
+# Windows system files
+Thumbs.db
+
+.env
+node_modules

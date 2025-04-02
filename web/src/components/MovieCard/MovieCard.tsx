@@ -30,7 +30,6 @@ const MovieCard = ({ movie, showAddToFavoriteBtn = true }: MovieProps) => {
     // When user adds movie to favorite the favorite heart icon
     // will transform into a full heart indicating it's a favorite movie
     addMovieToFavorites(movie.id, !isMovieFavorite);
-    console.log("Favorite icon full", !isMovieFavorite);
     setIsFavoriteIconFull(!isMovieFavorite);
     setIsMovieFavorite((prev) => !prev);
   };

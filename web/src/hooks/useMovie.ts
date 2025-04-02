@@ -5,6 +5,12 @@ import { Actor } from "../models/actor";
 import { toast } from "react-toastify";
 import { Worker } from "../models/worker";
 
+interface UseMovieReturn {
+  movie: Movie | null,
+  credits: { cast: Actor[], crew: Worker[] },
+  voteForMovie: (rating: number) => void
+}
+
 /**
  * Hook to get all the info about a movie.
  * @param {string} id - The id of the movie to get the info about.
@@ -17,9 +23,9 @@ import { Worker } from "../models/worker";
  */
 const useMovie = (
   id: string
-): [Movie | null, { cast: Actor[], crew: Worker[] }, (rating: number) => Promise<void>] => {
-  const [movies, setMovie] = useState<Movie | null>(null);
-  const [movieCredits, setMovieCredits] = useState<{ cast: Actor[], crew: Worker[] }>({
+): UseMovieReturn => {
+  const [movie, setMovie] = useState<Movie | null>(null);
+  const [credits, setCredits] = useState<{ cast: Actor[], crew: Worker[] }>({
     cast: [],
     crew: []
   });
@@ -43,7 +49,7 @@ const useMovie = (
 
   const fetchMovieCredits = async () => {
     const response = await api.get(`movie/${id}/credits`);
-    setMovieCredits(response.data);
+    setCredits(response.data);
   };
 
   useEffect(() => {
@@ -51,7 +57,7 @@ const useMovie = (
     fetchMovieCredits();
   }, [id]);
 
-  return [movies, movieCredits, voteForMovie];
+  return { movie, credits, voteForMovie };
 };
 
 export default useMovie;

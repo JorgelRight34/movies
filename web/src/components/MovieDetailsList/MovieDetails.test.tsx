@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import { describe, expect } from "vitest";
-import MovieDetailsList from "./MovieDetails";
+import MovieDetailsList from "./MovieDetailsList";
 import { mockMovie } from "../../lib/constants";
 
 describe("MovieDetails", () => {

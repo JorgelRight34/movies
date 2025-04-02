@@ -3,6 +3,14 @@ import api from "../data/api";
 import { Movie } from "../models/movie";
 import { ACCOUNT_ID } from "../lib/constants";
 
+interface UseFavoritesReturn {
+  favoriteMovies: Movie[],
+  page: number,
+  totalPages: number,
+  handleNextPage: () => void,
+  handlePreviousPage: () => void
+}
+
 /**
  * Hook to fetch all the favorite movies associated with the current session ID.
  *
@@ -15,7 +23,7 @@ import { ACCOUNT_ID } from "../lib/constants";
  * @example
  * const [favoriteMovies, totalFavorites, refreshFavorites, resetFavorites] = useFavorites();
  */
-const useFavorites = (): [Movie[], number, number, () => void, () => void] => {
+const useFavorites = (): UseFavoritesReturn => {
   const [favoriteMovies, setFavoriteMovies] = useState<Movie[]>([]);
   const [page, setPage] = useState(1);
   const [totalPages, setTotalPages] = useState(0);
@@ -32,7 +40,7 @@ const useFavorites = (): [Movie[], number, number, () => void, () => void] => {
     if (page + 1 <= totalPages) setPage((prev) => prev + 1);
   };
 
-  const handlePreviusPage = () => {
+  const handlePreviousPage = () => {
     if (page - 1 != 0) setPage((prev) => prev - 1);
   };
 
@@ -40,7 +48,7 @@ const useFavorites = (): [Movie[], number, number, () => void, () => void] => {
     getFavoriteMovies();
   }, [page]);
 
-  return [favoriteMovies, page, totalPages, handleNextPage, handlePreviusPage];
+  return { favoriteMovies, page, totalPages, handleNextPage, handlePreviousPage };
 };
 
 export default useFavorites;

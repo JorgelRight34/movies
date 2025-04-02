@@ -26,19 +26,19 @@ const SearchMovieInput = () => {
   const [showModal, setShowModal] = useState(false);
   const navigate = useNavigate();
   const searchResultsPath = "/movies/search";
-  const timeOutRef = useRef<NodeJS.Timeout | null>(null);
+  const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   const handleOnSubmit: KeyboardEventHandler<HTMLInputElement> = (event) => {
     if (
       event.key === "Enter" ||
       window.location.pathname === searchResultsPath
     ) {
-      if (timeOutRef.current) {
-        clearTimeout(timeOutRef.current);
+      if (timeoutRef.current) {
+        clearTimeout(timeoutRef.current);
       } else if (query) {
         navigate(`${searchResultsPath}?q=${query}`);
       }
-      timeOutRef.current = setTimeout(() => {
+      timeoutRef.current = setTimeout(() => {
         navigate(`${searchResultsPath}?q=${query}`, { replace: true });
       }, 500);
     }

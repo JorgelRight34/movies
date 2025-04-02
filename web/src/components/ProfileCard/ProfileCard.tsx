@@ -8,7 +8,7 @@ interface ProfileCardProps {
 }
 
 /**
- * A prpfile component for displaying profile details.
+ * A profile component for displaying profile details.
  *
  * @component
  * @param {Person} props.Person - The person (actor or worker) associated with the card.

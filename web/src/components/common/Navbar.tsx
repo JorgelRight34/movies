@@ -2,6 +2,7 @@ import { NavLink } from "react-router";
 import LoginBtn from "./LoginBtn";
 import { handleTMDBAuth } from "../../data/tmdbAuth";
 import SearchMovieInput from "../SearchMovieInput/SearchMovieInput";
+import { ACCOUNT_ID } from "../../lib/constants";
 
 /**
  * The navbar for the whole app. On large screens a navbar at the top is visible,
@@ -26,7 +27,8 @@ const Navbar = () => {
           <div className="d-none d-lg-flex align-items-center flex-wrap gap-5 ms-auto">
             <NavLink to="/">Películas</NavLink>
             <NavLink to="/favorites">Favoritos</NavLink>
-            <LoginBtn />
+            {/* If user is not logged in show the button */}
+            {ACCOUNT_ID && <LoginBtn />}
           </div>
         </nav>
       </header>
@@ -52,12 +54,15 @@ const Navbar = () => {
             >
               <span className="material-icons-outlined fs-1">favorite</span>
             </NavLink>
-            <span
-              className="material-icons-outlined fs-1"
-              onClick={handleTMDBAuth}
-            >
-              login
-            </span>
+            {/* If user is not logged in show the button */}
+            {ACCOUNT_ID && (
+              <span
+                className="material-icons-outlined fs-1"
+                onClick={handleTMDBAuth}
+              >
+                login
+              </span>
+            )}
           </div>
         </nav>
       </div>

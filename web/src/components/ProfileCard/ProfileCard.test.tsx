@@ -38,4 +38,16 @@ describe("ProfileCard", () => {
     const regex = new RegExp(mockProfile.name, "i");
     await expect(screen.getByAltText(regex)).toBeInTheDocument();
   });
+
+  it("profile subheading should be visible", async () => {
+    render(
+      <ProfileCard
+        name={mockProfile.name}
+        photo={mockProfile.profile_path}
+        subheading="Spiderman"
+      />
+    );
+    const regex = new RegExp("Spiderman", "i");
+    await expect(screen.getByText(regex)).toBeInTheDocument();
+  });
 });
