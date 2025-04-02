@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react-native";
 import { mockMovie } from "../../lib/constants";
-import MovieCard from "../MovieCard";
+import MovieCard from "../movie/MovieCard";
 
 describe("MovieCard", () => {
   it("movie title should be visible", async () => {

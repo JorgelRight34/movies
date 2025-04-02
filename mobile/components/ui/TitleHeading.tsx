@@ -1,5 +1,5 @@
 import { ReactNode } from "react";
-import { Heading } from "./ui/heading";
+import { Heading } from "./heading";
 import styles from "@/styles/styles";
 
 interface TitleHeadingProps {

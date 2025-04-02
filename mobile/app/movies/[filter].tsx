@@ -1,6 +1,6 @@
-import MovieCard from "@/components/MovieCard";
+import MovieCard from "@/components/movie/MovieCard";
 import PaginationControls from "@/components/PaginationControls";
-import TitleHeading from "@/components/TitleHeading";
+import TitleHeading from "@/components/ui/TitleHeading";
 import { Box } from "@/components/ui/box";
 import useMovies from "@/hooks/useMovies";
 import { MovieFilter } from "@/models/movieFilter";
@@ -9,6 +9,12 @@ import { useSearchParams } from "expo-router/build/hooks";
 import { useMemo } from "react";
 import { FlatList, ScrollView } from "react-native";
 
+/**
+ * Page component for search movies result.
+ *
+ * @component
+ * @returns {JSX.Element} The rendered search results page component.
+ */
 const Movies = () => {
   const params = useSearchParams();
   const filter = params.get("filter");

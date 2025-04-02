@@ -1,4 +1,4 @@
-import MoviesList from "@/components/MoviesList";
+import MoviesList from "@/components/movie/MoviesList";
 import { Box } from "@/components/ui/box";
 import useMovies from "@/hooks/useMovies";
 import { ScrollView } from "react-native";

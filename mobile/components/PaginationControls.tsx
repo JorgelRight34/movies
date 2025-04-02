@@ -1,6 +1,5 @@
-import AccentButton from "./AccentButton";
+import AccentButton from "./ui/AccentButton";
 import { Box } from "./ui/box";
-import { Button, ButtonText } from "./ui/button";
 
 interface PaginationControlsProps {
   page: number;
@@ -9,6 +8,22 @@ interface PaginationControlsProps {
   back: () => void;
 }
 
+/**
+ * Interactive pagination controls for navigating between pages of content.
+ * Provides "Previous" and "Next" buttons with disabled states when at boundaries,
+ * and displays current page/total pages count. Designed for use with lists, tables,
+ * or grid layouts that require pagination.
+ *
+ * @component
+ * @example
+ *
+ * @param {Object} props - Component properties
+ * @param {number} props.page - Current active page (1-indexed)
+ * @param {number} props.totalPages - Total available pages
+ * @param {() => void} props.next - Callback triggered when next page is requested
+ * @param {() => void} props.back - Callback triggered when previous page is requested
+ * @returns {React.ReactElement} A row with navigation buttons and page indicator
+ */
 const PaginationControls = ({
   page,
   totalPages,

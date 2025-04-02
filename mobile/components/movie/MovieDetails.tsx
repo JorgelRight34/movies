@@ -16,6 +16,15 @@ interface MovieDetailsProps {
   voteForMovie: (rating: number) => void;
 }
 
+/**
+ * A details component for displaying the movie details.
+ *
+ * @component
+ * @param {Object} props.props - The properties passed to the component.
+ * @param {Movie} props.movie - The movie associated with the details.
+ * @param {(value: number) => void} [props.voteForMovie] - Callback function to handle the voting process for the movie.
+ * @returns {JSX.Element} The rendered movie details component.
+ */
 const MovieDetails = ({ movie, voteForMovie }: MovieDetailsProps) => {
   const addToMovieToFavorites = useAddMovieToFavorites();
 

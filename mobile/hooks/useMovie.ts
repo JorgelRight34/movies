@@ -12,11 +12,11 @@ interface UseMovieReturn {
 }
 
 /**
- * Hook to get all the info about a movie.
+ * Hook to get all the info about a movie from the TMDB api.
  * @param {string} id - The id of the movie to get the info about.
  /**
- * @returns {[Movie | null, { cast: Actor[]; crew: Worker[] }, (rating: number) => Promise<void>]} 
- * An array containing:
+ * @returns {{ movie: Movie | null, credits: { cast: Actor[], crew: Worker[] }, voteForMovie: (rating: number) => Promise<void> }} 
+ * An object containing:
  *  1. The movie object or null.
  *  2. An object with the movie's cast and crew.
  *  3. A function to update the movie rating asynchronously.

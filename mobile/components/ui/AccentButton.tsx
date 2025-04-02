@@ -1,5 +1,5 @@
 import { ReactNode } from "react";
-import { Button, ButtonText } from "./ui/button";
+import { Button, ButtonText } from "./button";
 import theme from "@/styles/theme";
 
 interface AccentButtonProps {

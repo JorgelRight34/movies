@@ -19,13 +19,6 @@ import { MovieFilter } from "../models/movieFilter";
  * @example
  * // Basic usage
  * const { movies, page, goToNextPage } = useMovies("popular");
- *
- * @example
- * // With manual refresh (this can be used on a search results page)
- * const { fetchMovies } = useMovies();
- * useEffect(() => {
- *   fetchMovies("top_rated"); // Change category dynamically
- * }, []);
  */
 const useMovies = (
   endpoint: MovieFilter = "now_playing",
@@ -36,20 +29,20 @@ const useMovies = (
   totalPages: number;
   goToNextPage: () => void;
   goToPrevPage: () => void;
-  fetchMovies: () => void;
+  fetchMovies: (q: string) => void;
 } => {
   const [movies, setMovies] = useState<Movie[]>([]);
   const [page, setPage] = useState(1);
   const [totalPages, setTotalPages] = useState(0);
 
-  const fetchMovies = async () => {
+  const fetchMovies = async (q = "") => {
     // Get path, if search is specified create the specific endpoint search/movie
     const path = `${endpoint === "search" ? endpoint : "movie"}/${endpoint === "search" ? "movie" : endpoint
       }`;
 
     // Fire request and get response
     const response = await api.get(
-      `${path}?page=${page}&sort_by=original_title.desc&${query}`
+      `${path}?page=${page}&sort_by=original_title.desc&query=${q || query || ""}`
     );
 
     // Update states

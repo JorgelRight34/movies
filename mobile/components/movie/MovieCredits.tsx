@@ -1,17 +1,28 @@
 import { Actor } from "@/models/actor";
 import { Worker } from "@/models/worker";
 import { Box } from "../ui/box";
-import { Heading } from "../ui/heading";
-import styles from "@/styles/styles";
 import { FlatList } from "react-native";
 import ProfileCard from "../ProfileCard";
 import { ProductionCompany } from "@/models/productionCompany";
-import TitleHeading from "../TitleHeading";
+import TitleHeading from "../ui/TitleHeading";
 
 interface MovieCreditsProps {
   credits: { cast: Actor[]; crew: Worker[]; companies: ProductionCompany[] };
 }
 
+/**
+ * Displays a horizontal scrollable list of movie credits (cast, crew, and production companies)
+ * as interactive profile cards. Each card shows an image, name, and subheading (role/department).
+ *
+ * @component
+ *
+ * @param {Object} props - Component props.
+ * @param {MovieCreditsData} props.credits - Contains `cast`, `crew`, and `companies` arrays.
+ * @param {Actor[]} props.credits.cast - Array of actors with `name`, `character`, and `profile_path`.
+ * @param {Worker[]} props.credits.crew - Array of crew members with `name`, `job`, and `profile_path`.
+ * @param {ProductionCompany[]} props.credits.companies - Array of companies with `name` and `logo_path`.
+ * @returns {React.ReactElement} Horizontal stack of profile cards with lazy-loaded images.
+ */
 const MovieCredits = ({ credits }: MovieCreditsProps) => {
   return (
     <Box className="p-3">

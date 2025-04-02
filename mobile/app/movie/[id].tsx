@@ -1,7 +1,7 @@
 import MovieCredits from "@/components/movie/MovieCredits";
 import MovieDetails from "@/components/movie/MovieDetails";
 import MovieOverview from "@/components/movie/MovieOverview";
-import MoviesList from "@/components/MoviesList";
+import MoviesList from "@/components/movie/MoviesList";
 import { Box } from "@/components/ui/box";
 import useMovie from "@/hooks/useMovie";
 import useRecommendedMovies from "@/hooks/useRecommendedMovies";
@@ -9,6 +9,12 @@ import { Stack } from "expo-router";
 import { useSearchParams } from "expo-router/build/hooks";
 import { ScrollView } from "react-native";
 
+/**
+ * Page component for the details of a single movie.
+ *
+ * @component
+ * @returns {JSX.Element} The rendered movie details page component.
+ */
 const MovieDetailsScreen = () => {
   const params = useSearchParams();
   const id = params.get("id");

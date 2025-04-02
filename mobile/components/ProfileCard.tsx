@@ -11,6 +11,14 @@ interface ProfileCardProps {
   subheading?: string;
 }
 
+/**
+ * A profile component for displaying profile details.
+ *
+ * @component
+ * @param {Person} props.Person - The person (actor or worker) associated with the card.
+ * @param {string} [subheading] - Subheading that will be shown on the other column.
+ * @returns {JSX.Element} The rendered profile component.
+ */
 const ProfileCard = ({ name, photo, subheading }: ProfileCardProps) => {
   return (
     <Card
