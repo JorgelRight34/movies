@@ -245,6 +245,18 @@ Los clientes pueden añadir películas a su lista de favoritos.
 
 ---
 
+# Extras personales
+
+Le aguregue a las aplicaciones un toque personal anadiendo nuevas funcionalidades
+
+### 1 - Busqueda de peliculas
+
+![Busqueda de peliculas](assets/web/search-lg.gif)
+
+### 2 - Autenticacion
+
+---
+
 ## 🏗️ Arquitectura del Software
 
 ### Arquitectura de Software: React/React Native con Principios SOLID y Axios
@@ -496,10 +508,6 @@ const useMovies = (
 
 export default useMovies;
 ```
-
-Aquí tienes el texto mejorado en **Markdown**, con mayor claridad, estructura y fluidez:
-
----
 
 Este **hook** retorna:  
 ✅ Una **lista de películas** obtenida desde la API.  
