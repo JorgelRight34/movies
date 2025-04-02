@@ -153,7 +153,7 @@ Los clientes pueden ver más detalles de una película.
 
 #### 🖥️ Versión Escritorio
 
-![Detalles de película - escritorio](assets/web/ff-2.png)
+![Detalles de película - escritorio](https://res.cloudinary.com/dt2rpkze9/image/upload/v1743626828/assets/web/hcvpc9yg4bmkuynuelie.png)
 ![Detalles de película - escritorio](<assets/web/ff-2(1).png>)
 ![Detalles de película - escritorio](<assets/web/ff-2(2).png>)
 ![Detalles de película - escritorio](<assets/web/ff-2(3).png>)
@@ -161,7 +161,7 @@ Los clientes pueden ver más detalles de una película.
 #### 📱 Versión Móvil
 
 <div style="text-align: center;">
-  <img src="assets/web/ff-2-sm.png" alt="Detalles de película en móvil" width="300">
+  <img src="https://res.cloudinary.com/dt2rpkze9/image/upload/v1743626820/assets/web/vg13v4tefq8ap1uxyasp.png" alt="Detalles de película en móvil" width="300">
   <img src="assets/web/ff-2-sm(1).png" alt="Detalles de película en móvil" width="300">
 </div>
 
@@ -225,12 +225,12 @@ Los clientes pueden ver una lista de películas similares o recomendadas.
 
 #### 🖥️ Versión Escritorio
 
-![Lista de películas recomendadas - Web](assets/web/ff-4.png)
+![Lista de películas recomendadas - Web](https://res.cloudinary.com/dt2rpkze9/image/upload/v1743626850/assets/web/oqangjiw7q90fheeqyno.png)
 
 #### 📱 Versión Móvil
 
 <div style="text-align: center;">
-  <img src="assets/web/ff-4-sm.png" alt="Lista de películas recomendadas - Web (móvil)" width="300">
+  <img src="https://res.cloudinary.com/dt2rpkze9/image/upload/v1743626832/assets/web/a1l1paj5gzgaxrk5uubm.png" alt="Lista de películas recomendadas - Web (móvil)" width="300">
 </div>
 
 ### 📱 Aplicación Móvil
@@ -255,7 +255,7 @@ Los clientes pueden añadir películas a su lista de favoritos.
 
 ### 📱 Aplicación Móvil
 
-![Gif de añadir a favoritos en móvil](assets/mobile/ff-5.gif)
+![Gif de añadir a favoritos en móvil](https://res.cloudinary.com/dt2rpkze9/image/upload/v1743626859/assets/mobile/kwhz5awxqdm27fc3pn7t.gif)
 
 #### 📌 Características:
 
@@ -280,14 +280,14 @@ Le agregué a las aplicaciones un toque personal añadiendo nuevas funcionalidad
 #### 📱 Aplicación Móvil
 
 <div style="text-align: center;">
-  <img src="assets/mobile/search.gif" alt="Búsqueda de películas en móvil" width="300">
+  <img src="https://res.cloudinary.com/dt2rpkze9/image/upload/v1743626853/assets/mobile/oos5j60asd7hcfsupnnr.gif" alt="Búsqueda de películas en móvil" width="300">
 </div>
 
 La búsqueda se realiza cada 500 ms para evitar realizar una solicitud por cada letra ingresada. Si se escribe una nueva letra antes de que transcurran los 500 ms, se cancela la espera de la solicitud anterior y se inicia una nueva. Los resultados de la búsqueda se muestran en tiempo real mientras se escribe en la página de búsqueda.
 
 ### 2. Autenticación
 
-![Login](assets/web/login.gif)
+![Login](https://res.cloudinary.com/dt2rpkze9/image/upload/v1743626888/assets/web/amqr54oih1zidpxjtylw.gif)
 
 ---
 
