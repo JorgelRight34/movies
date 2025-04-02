@@ -1,0 +1,119 @@
+/* Variables */
+:root {
+  --accent-color: #800020;
+  --background-dark: #1e1e1e;
+  --background-medium: #2a2a2a;
+}
+
+#root {
+  background-color: var(--background-dark);
+  color: #fff;
+  height: 100vh;
+  overflow-x: hidden;
+  width: 100dvw;
+}
+
+/* Utility */
+.border-accent {
+  border-color: var(--accent-color) !important;
+}
+
+.border-accent-left {
+  border-left: 0.25rem solid var(--accent-color);
+  padding-left: 0.5rem;
+}
+
+.border-accent-bottom {
+  border-bottom: 0.25rem solid var(--accent-color);
+}
+
+.btn-accent {
+  background: var(--accent-color) !important;
+  color: #fff;
+}
+
+.bg-dark {
+  background-color: var(--background-dark) !important;
+}
+
+.bg-black {
+  background-color: #000;
+}
+
+.bg-medium {
+  background-color: var(--background-medium);
+}
+
+.text-accent {
+  color: var(--accent-color);
+}
+
+.cast-list {
+  max-height: 10rem;
+  overflow-y: auto;
+}
+
+.navbar a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.navbar {
+  background-color: var(--background-dark);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.navbar-brand {
+  height: 2.5rem;
+}
+
+.small-logo {
+  height: 1.5rem;
+  object-fit: contain;
+  width: 1.5rem;
+}
+
+footer a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.invert-filter {
+  filter: invert(1);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 0.33em;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--background-medium);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--accent-color);
+  border-radius: 100vw;
+}
+
+/* Responsive */
+@media (max-width: 500px) {
+  .navbar-brand {
+    height: 2rem;
+  }
+
+  .top-navbar {
+    background-color: rgb(0, 0, 0, 0.8) !important;
+    height: 3.5rem;
+  }
+
+  .bottom-navbar {
+    height: 3.5rem;
+  }
+
+  ::-webkit-scrollbar {
+    width: 0;
+  }
+}

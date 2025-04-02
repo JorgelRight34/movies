@@ -14,6 +14,10 @@ Ambas aplicaciones comparten una arquitectura basada en **TypeScript**, lo que f
 
 Además, se han diseñado con un enfoque modular para permitir futuras integraciones, como la funcionalidad de reserva de películas en teatros, alineándose con la estrategia de crecimiento de la startup. 🚀
 
+### Video demo
+
+Puede ver una demo demostrando todas las historias a completar en este [enlace](https://youtu.be/29izT66QNjg).
+
 # **Instalación**
 
 ## **Requisitos previos**
@@ -267,16 +271,16 @@ Le agregué a las aplicaciones un toque personal añadiendo nuevas funcionalidad
 
 #### 🌐 Página Web
 
-![Busqueda de peliculas](assets/web/search-lg.gif)
+![Busqueda de peliculas](assets/web/search-lg.png)
 
 <div style="text-align: center;">
-  <img src="assets/web/search-sm.gif" alt="Búsqueda de películas en móvil" width="300">
+  <img src="assets/web/search-sm.jpeg" alt="Búsqueda de películas en móvil" width="300">
 </div>
 
 #### 📱 Aplicación Móvil
 
 <div style="text-align: center;">
-  <img src="https://res.cloudinary.com/dt2rpkze9/image/upload/v1743626853/assets/mobile/oos5j60asd7hcfsupnnr.gif" alt="Búsqueda de películas en móvil" width="300">
+  <img src="assets/mobile/search.jpg" alt="Búsqueda de películas en móvil" width="300">
 </div>
 
 La búsqueda se realiza cada 500 ms para evitar realizar una solicitud por cada letra ingresada. Si se escribe una nueva letra antes de que transcurran los 500 ms, se cancela la espera de la solicitud anterior y se inicia una nueva. Los resultados de la búsqueda se muestran en tiempo real mientras se escribe en la página de búsqueda.

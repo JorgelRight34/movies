@@ -26,7 +26,7 @@ const SearchMovieResults = () => {
     <MovieListLayout
       page={page}
       totalPages={totalPages}
-      title="Search Results"
+      title="Resultados de Búsqueda"
       goToNextPage={goToNextPage}
       goToPrevPage={goToPrevPage}
     >

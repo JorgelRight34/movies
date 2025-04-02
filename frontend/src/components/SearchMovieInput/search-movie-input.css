@@ -1,0 +1,19 @@
+.search-form-overlay {
+  background-color: rgb(0, 0, 0, 0.5);
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100dvh;
+  width: 100dvw;
+  z-index: 999;
+}
+
+.search-movie-input {
+  background-color: var(--background-medium);
+  border: none;
+  border-bottom: 2px solid var(--accent-color);
+  color: #fff;
+  outline: none;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  width: 32vw;
+}
