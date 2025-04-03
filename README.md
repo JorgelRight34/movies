@@ -255,7 +255,7 @@ Los clientes pueden añadir películas a su lista de favoritos.
 
 ### 📱 Aplicación Móvil
 
-![Gif de añadir a favoritos en móvil](https://res.cloudinary.com/dt2rpkze9/image/upload/v1743626859/assets/mobile/kwhz5awxqdm27fc3pn7t.gif)
+![Gif de añadir a favoritos en móvil](assets/mobile/ff-5.gif)
 
 #### 📌 Características:
 
