@@ -163,6 +163,8 @@ Los clientes pueden ver más detalles de una película.
 <div style="text-align: center;">
   <img src="https://res.cloudinary.com/dt2rpkze9/image/upload/v1743626820/assets/web/vg13v4tefq8ap1uxyasp.png" alt="Detalles de película en móvil" width="300">
   <img src="https://res.cloudinary.com/dt2rpkze9/image/upload/v1743626814/assets/web/gwgac7b9stnhza4pazfo.png" alt="Detalles de película en móvil" width="300">
+  <img src="assets/web/ff-2-cast.png" alt="Detalles de película en móvil" width="300">
+  <img src="assets/web/ff-2-crew.png" alt="Detalles de película en móvil" width="300">>
 </div>
 
 #### 📌 Características:
