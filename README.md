@@ -8,7 +8,7 @@ Para desarrollar la plataforma de **Lorenzo Movies Inc**, se implementaron dos a
 
 1. **Aplicación móvil**: Desarrollada con **React Native y Expo**, permite a los usuarios descubrir películas de su interés de manera intuitiva y fluida. Expo facilita la gestión del proyecto y el despliegue en dispositivos iOS y Android, asegurando una experiencia optimizada en dispositivos móviles.
 
-2. **Aplicación web**: Desarrollada con **React y Vite**, proporciona una alternativa accesible desde cualquier navegador. Se priorizó el rendimiento y la velocidad de carga mediante el uso de **Vite**, mientras que **TypeScript** garantiza un código más estructurado y mantenible. Se encuentra en [Este enlace](https://lorenzo-movies-inc.vercel.app/)
+2. **Aplicación web**: Desarrollada con **React y Vite**, proporciona una alternativa accesible desde cualquier navegador. Se priorizó el rendimiento y la velocidad de carga mediante el uso de **Vite**, mientras que **TypeScript** garantiza un código más estructurado y mantenible. Se encuentra en este <a href="https://lorenzo-movies-inc.vercel.app/" target="_blank">enlace</a>.
 
 Ambas aplicaciones comparten una arquitectura basada en **TypeScript**, lo que facilita la consistencia en el desarrollo, la reutilización de componentes y la escalabilidad del proyecto.
 
@@ -16,7 +16,7 @@ Además, se han diseñado con un enfoque modular para permitir futuras integraci
 
 ### Video demo
 
-Puede ver una demo demostrando todas las historias a completar en este [enlace](https://youtu.be/PoUR4sVn_Ns).
+Puede ver una demo demostrando todas las historias a completar en este <a href="https://youtu.be/PoUR4sVn_Ns" target="_blank">enlace</a>.
 
 # **Instalación**
 
